@@ -1,0 +1,3635 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#062c66" />
+    <meta
+      name="description"
+      content="MENTOR AI aide les jeunes a passer de l'incertitude a une premiere action claire."
+    />
+    <title>MENTOR AI</title>
+    <style>
+:root {
+  color-scheme: light;
+  --blue-950: #041b3f;
+  --blue-900: #062c66;
+  --blue-800: #0a3d86;
+  --blue-100: #d9e9ff;
+  --coral-600: #df3d4d;
+  --coral-100: #ffe5e8;
+  --green-600: #168351;
+  --amber-500: #c77a07;
+  --ink: #102033;
+  --muted: #5d6b7d;
+  --surface: #ffffff;
+  --surface-soft: #f7f9fc;
+  --line: #dce4ef;
+  --shadow: 0 16px 42px rgba(9, 43, 92, 0.14);
+  --radius: 8px;
+  --tap: 48px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #eef5ff;
+  --muted: #a9b8cc;
+  --surface: #081a36;
+  --surface-soft: #06142b;
+  --line: #254267;
+  --blue-100: #183a68;
+  --coral-100: #4b1d29;
+  --shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -6rem;
+  z-index: 20;
+  min-height: var(--tap);
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border: 2px solid var(--coral-600);
+  border-radius: var(--radius);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1120px, calc(100% - 2rem));
+  min-height: 4.25rem;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  gap: 0.65rem;
+  color: var(--blue-900);
+  font-weight: 850;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+
+[data-theme="dark"] .brand {
+  color: #7fb2ff;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  background: var(--blue-900);
+  color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 8px 20px rgba(6, 44, 102, 0.22);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.select-wrap select,
+.icon-button {
+  min-height: var(--tap);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--radius);
+}
+
+.select-wrap select {
+  min-width: 6.5rem;
+  padding: 0 0.7rem;
+  font-weight: 750;
+}
+
+.icon-button {
+  display: grid;
+  width: var(--tap);
+  place-items: center;
+  cursor: pointer;
+}
+
+.theme-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue-900) 0 50%, #f7c948 50%);
+  border: 2px solid currentColor;
+}
+
+main {
+  overflow: hidden;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-inner,
+.hero-inner {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100svh - 4.25rem);
+  display: grid;
+  align-items: center;
+  padding: 2.25rem 0 3rem;
+  background:
+    linear-gradient(140deg, rgba(6, 44, 102, 0.08), transparent 40%),
+    linear-gradient(0deg, var(--surface-soft), var(--surface));
+}
+
+.hero-inner {
+  display: grid;
+  gap: 2rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 2rem;
+  padding: 0.25rem 0.65rem;
+  background: var(--coral-100);
+  color: var(--coral-600);
+  border-radius: 999px;
+  font-weight: 850;
+  font-size: 0.86rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 11ch;
+  margin-bottom: 1rem;
+  color: var(--blue-950);
+  font-size: clamp(2.8rem, 12vw, 6.4rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2 {
+  color: #f5f9ff;
+}
+
+.hero-subtitle {
+  max-width: 35rem;
+  margin-bottom: 1.15rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  padding: 0 1.05rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-weight: 850;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: var(--coral-600);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(223, 61, 77, 0.24);
+}
+
+.button-secondary {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--blue-900);
+}
+
+[data-theme="dark"] .button-secondary {
+  color: #b8d5ff;
+}
+
+.trust-row {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.trust-item {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.trust-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  flex: 0 0 auto;
+  background: var(--green-600);
+  border-radius: 999px;
+}
+
+.phone-shell {
+  width: min(100%, 23rem);
+  margin: 0 auto;
+  padding: 0.75rem;
+  background: var(--blue-950);
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.phone-screen {
+  overflow: hidden;
+  min-height: 26rem;
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 1.35rem;
+}
+
+.phone-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--blue-900);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.mission-preview {
+  padding: 1rem;
+}
+
+.mission-preview h2 {
+  margin-bottom: 0.45rem;
+  font-size: 1.35rem;
+}
+
+.mission-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.mission-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.85rem;
+  padding: 0 0.55rem;
+  background: var(--blue-100);
+  color: var(--blue-900);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+[data-theme="dark"] .pill {
+  color: #d7e8ff;
+}
+
+.mission-progress {
+  height: 0.7rem;
+  overflow: hidden;
+  background: var(--line);
+  border-radius: 999px;
+}
+
+.mission-progress span {
+  display: block;
+  width: 42%;
+  height: 100%;
+  background: var(--green-600);
+  border-radius: inherit;
+}
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.mini-stat {
+  padding: 0.65rem 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.mini-stat strong {
+  display: block;
+  color: var(--blue-900);
+  font-size: 1.05rem;
+}
+
+[data-theme="dark"] .mini-stat strong {
+  color: #8fbdff;
+}
+
+.mini-stat span {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.check-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.points-toast {
+  min-height: 1.5rem;
+  margin-top: 0.85rem;
+  color: var(--green-600);
+  font-weight: 850;
+  opacity: 0;
+}
+
+.points-toast.is-visible {
+  animation: points 900ms ease both;
+}
+
+.section-heading {
+  max-width: 42rem;
+  margin-bottom: 1.6rem;
+}
+
+.section-heading h2 {
+  margin-bottom: 0.55rem;
+  color: var(--blue-950);
+  font-size: clamp(1.8rem, 8vw, 3rem);
+  line-height: 1;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+.split-visual {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.before-after {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.state-panel {
+  padding: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.state-panel strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--blue-900);
+}
+
+[data-theme="dark"] .state-panel strong {
+  color: #8fbdff;
+}
+
+.steps {
+  display: grid;
+  gap: 0.8rem;
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  min-height: 8rem;
+  padding: 1rem 1rem 1rem 4rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  background: var(--blue-900);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.card {
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.domain-card {
+  display: flex;
+  align-items: center;
+  min-height: 5.75rem;
+  gap: 0.8rem;
+}
+
+.domain-icon,
+.feature-icon {
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  flex: 0 0 auto;
+  place-items: center;
+  background: var(--blue-100);
+  color: var(--blue-900);
+  border-radius: var(--radius);
+  font-weight: 900;
+}
+
+[data-theme="dark"] .domain-icon,
+[data-theme="dark"] .feature-icon {
+  color: #d7e8ff;
+}
+
+.feature-card {
+  min-height: 10rem;
+}
+
+.feature-card h3,
+.mentor-card h3,
+.privacy-card h3 {
+  margin-bottom: 0.45rem;
+  font-size: 1.08rem;
+}
+
+.feature-card p,
+.mentor-card p,
+.privacy-card p,
+.step p,
+.state-panel p,
+.coming-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.mentor-card {
+  display: grid;
+  min-height: 11rem;
+}
+
+.mentor-quote {
+  align-self: end;
+  margin-top: 0.9rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--coral-600);
+  color: var(--muted);
+}
+
+.haiti-band {
+  background: var(--blue-900);
+  color: #fff;
+}
+
+.haiti-band .section-heading h2,
+.haiti-band .section-heading p {
+  color: #fff;
+}
+
+.reality-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.reality-item {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius);
+}
+
+.privacy-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.privacy-card {
+  min-height: 8.5rem;
+}
+
+.cta-section {
+  padding: 4rem 0;
+  background: var(--surface);
+}
+
+.cta-panel {
+  display: grid;
+  gap: 1.1rem;
+  padding: 1.35rem;
+  background: var(--blue-950);
+  color: #fff;
+  border-radius: var(--radius);
+}
+
+.cta-panel h2 {
+  margin-bottom: 0.4rem;
+  font-size: clamp(1.85rem, 8vw, 3.2rem);
+  line-height: 1;
+}
+
+.cta-panel p {
+  margin-bottom: 0;
+  color: #dce9fb;
+}
+
+.site-footer {
+  padding: 2rem 0;
+  background: var(--blue-950);
+  color: #dce9fb;
+}
+
+.footer-inner {
+  display: grid;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.footer-links a {
+  min-height: 2rem;
+  color: inherit;
+}
+
+.offline-note {
+  display: none;
+  padding: 0.75rem 1rem;
+  background: var(--amber-500);
+  color: #1e1300;
+  font-weight: 800;
+}
+
+.offline-note.is-visible {
+  display: block;
+}
+
+@keyframes points {
+  0% {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  25%,
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (min-width: 680px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(19rem, 24rem);
+    align-items: center;
+  }
+
+  .phone-screen {
+    min-height: 31rem;
+  }
+
+  .trust-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .split-visual,
+  .before-after,
+  .privacy-grid,
+  .reality-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .steps,
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .domain-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cta-panel {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+@media (min-width: 980px) {
+  .section {
+    padding: 5.5rem 0;
+  }
+
+  .hero {
+    padding: 3rem 0 4rem;
+  }
+
+  .grid-3,
+  .steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mentor-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+
+/* ===== MENTOR AI : application (démo MVP) ===== */
+:root {
+  --app-accent: var(--blue-900);
+}
+
+[data-theme="dark"] {
+  --app-accent: #9cc8ff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--coral-600);
+  outline-offset: 2px;
+}
+
+.app-wrap {
+  width: min(640px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.25rem 0 7rem;
+}
+
+.app-wrap.no-nav {
+  padding-bottom: 3rem;
+}
+
+.app-wrap .app-title {
+  max-width: none;
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+  font-size: clamp(1.55rem, 6vw, 2.1rem);
+  line-height: 1.15;
+  outline: none;
+}
+
+.app-wrap h2,
+.app-wrap h3 {
+  color: var(--ink);
+}
+
+.app-sub {
+  margin: 0 0 1.1rem;
+  color: var(--muted);
+}
+
+.app-stack {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.app-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.app-row.between {
+  justify-content: space-between;
+}
+
+.app-hello {
+  margin: 0 0 0.3rem;
+  color: var(--muted);
+  font-weight: 750;
+}
+
+.button-block {
+  width: 100%;
+}
+
+.button-small {
+  min-height: 44px;
+  padding: 0 0.8rem;
+  font-size: 0.92rem;
+}
+
+.button-ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.button-danger {
+  background: var(--coral-600);
+  color: #fff;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.field > label,
+.field-label,
+fieldset.share legend {
+  font-weight: 800;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field input[type="time"],
+.field select,
+.field textarea,
+.chat-input {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.field textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+fieldset.share {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+fieldset.share legend {
+  margin-bottom: 0.4rem;
+  padding: 0;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: var(--tap);
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.check-row input {
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  accent-color: var(--coral-600);
+}
+
+.trust-note {
+  margin: 0;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius);
+  background: var(--blue-100);
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.field-error {
+  min-height: 1.3rem;
+  margin: 0;
+  color: var(--coral-600);
+  font-weight: 750;
+}
+
+.bar {
+  height: 0.6rem;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--line);
+}
+
+.bar > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--coral-600);
+  transition: width 0.3s ease;
+}
+
+.quiz-meta {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
+  color: var(--muted);
+  font-weight: 750;
+  font-size: 0.92rem;
+}
+
+.opt-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.opt[aria-pressed="true"] {
+  border-color: var(--app-accent);
+  background: var(--blue-100);
+}
+
+.opt-mark {
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+}
+
+.opt.multi .opt-mark {
+  border-radius: 5px;
+}
+
+.opt[aria-pressed="true"] .opt-mark {
+  border-color: var(--app-accent);
+  background: var(--app-accent);
+  box-shadow: inset 0 0 0 3px var(--blue-100);
+}
+
+.opt.plain .opt-mark {
+  display: none;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.cat-card {
+  display: grid;
+  min-height: 7rem;
+  place-items: center;
+  align-content: center;
+  gap: 0.35rem;
+  padding: 0.8rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cat-icon {
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.unsure-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  margin-top: 0.8rem;
+  padding: 0.9rem 1rem;
+  border: 2px dashed var(--coral-600);
+  border-radius: var(--radius);
+  background: var(--coral-100);
+  color: var(--ink);
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.unsure-card small {
+  display: block;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.chat {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.4rem 0 1rem;
+}
+
+.bubble {
+  max-width: 90%;
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.bubble.mentor {
+  justify-self: start;
+}
+
+.bubble.me {
+  justify-self: end;
+  border-color: transparent;
+  background: var(--blue-900);
+  color: #fff;
+}
+
+[data-theme="dark"] .bubble.me {
+  background: #1b4f9a;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.flow {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.4rem 0 1rem;
+}
+
+.flow-item {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--coral-600);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.flow-item small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.day {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.2rem 0.8rem;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.day-n {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  place-items: center;
+  border-radius: var(--radius);
+  background: var(--blue-100);
+  color: var(--app-accent);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.day.is-done .day-n {
+  background: var(--green-600);
+  color: #fff;
+}
+
+.day.is-current {
+  border-color: var(--coral-600);
+}
+
+.day h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.day p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+.day-actions {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.day.edit {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.7rem;
+}
+
+.mission-big {
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.app-wrap .mission-big h2 {
+  margin: 0.6rem 0 0.4rem;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.mission-big p {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+}
+
+.mission-big .app-row {
+  margin-bottom: 0.6rem;
+}
+
+.easier-note {
+  padding: 0.55rem 0.8rem;
+  border-radius: var(--radius);
+  background: var(--coral-100);
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.result {
+  animation: app-pop 0.28s ease-out;
+}
+
+.big-points {
+  margin: 0;
+  color: var(--green-600);
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+@keyframes app-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.stat {
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.stat strong {
+  display: block;
+  color: var(--app-accent);
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.panel {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.app-wrap .panel h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.panel p {
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.goal-line {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.badge-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.badge.locked {
+  opacity: 0.55;
+}
+
+.badge-icon {
+  display: grid;
+  flex: 0 0 auto;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--coral-100);
+  font-size: 1.3rem;
+}
+
+.badge small {
+  display: block;
+  color: var(--muted);
+}
+
+.mem-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line);
+}
+
+.mem-item small {
+  display: block;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.mem-item span {
+  overflow-wrap: anywhere;
+}
+
+.rem-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.rem-row .field input {
+  width: 8rem;
+}
+
+.tabbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.tabbar-inner {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: min(640px, 100%);
+  margin: 0 auto;
+}
+
+.tab {
+  display: grid;
+  min-height: 3.7rem;
+  place-items: center;
+  align-content: center;
+  gap: 0.1rem;
+  padding: 0.35rem 0.1rem;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.tab svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.tab[aria-current="page"] {
+  color: var(--app-accent);
+  box-shadow: inset 0 3px 0 var(--coral-600);
+}
+
+.app-toast {
+  position: fixed;
+  bottom: 5.4rem;
+  left: 50%;
+  z-index: 30;
+  max-width: min(92vw, 28rem);
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  background: var(--blue-950);
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 10px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.app-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+[data-theme="dark"] .app-toast {
+  background: #1b4f9a;
+}
+
+    </style>
+    <script>
+const APP_VERSION = "mentor-ai-standalone-v1";
+const TRANSLATIONS = {"fr":{"a11y":{"skip":"Aller au contenu"},"controls":{"languageLabel":"Choisir la langue","fr":"FR","ht":"KREYÒL","theme":"Changer le mode clair ou sombre"},"offline":"Connexion instable. La page reste disponible hors ligne.","hero":{"eyebrow":"Mentor numérique pour avancer aujourd'hui","subtitle":"Tu n'as pas besoin de savoir par où commencer. Commençons ensemble, avec un plan simple, des missions courtes et un suivi qui respecte ton rythme.","cta":"Commencer","secondary":"Voir comment ça marche","trustLabel":"Points forts","trust":["Pensé pour téléphone","Peu de data","Données sous ton contrôle"]},"missionPreview":{"aria":"Aperçu d'une mission du jour dans l'application","topLeft":"Aujourd'hui","topRight":"Série 3 jours","eyebrow":"Mission du jour","title":"Choisis une première action","intro":"Une mission claire de 15 minutes pour transformer une idée floue en action.","duration":"15 min","points":"+10 points","task":"Écris trois choses que tu sais faire, puis choisis celle que tu peux utiliser cette semaine.","progress":"Progression de la mission","stats":[{"value":"42%","label":"plan"},{"value":"5","label":"missions"},{"value":"80","label":"points"}],"button":"Mission accomplie","done":"Mission validée","toast":"+10 points. Prochaine étape débloquée."},"problem":{"title":"De l'incertitude à l'action","body":"MENTOR AI aide quand tout semble trop grand : études, travail, argent, famille, fatigue. L'objectif est de trouver une petite action utile, pas de tout régler en une fois.","states":[{"title":"Avant","body":"Je ne sais pas quoi faire, je repousse, je me compare aux autres."},{"title":"Après","body":"Je vois ma situation, je choisis une direction et je fais une mission aujourd'hui."}]},"steps":{"title":"Comment ça marche","body":"Un parcours court, une question à la fois, pour garder l'effort léger même avec peu de temps.","items":[{"title":"Je me présente","body":"Prénom, âge, langue et ce que je veux partager."},{"title":"Je choisis un objectif","body":"Ou je dis simplement que je ne sais pas par où commencer."},{"title":"Je reçois mon plan","body":"Un plan de 7 jours, clair et modifiable."},{"title":"Je fais ma mission","body":"15 à 20 minutes, puis une prochaine étape."}]},"domains":{"title":"Six domaines utiles","body":"L'application part des vrais besoins du quotidien et propose des objectifs simples à tester.","items":[{"title":"Études","body":"Organiser ses devoirs, réviser, demander de l'aide."},{"title":"Travail","body":"Préparer un CV, chercher une opportunité, s'entraîner."},{"title":"Entrepreneuriat","body":"Tester une idée avec peu de moyens."},{"title":"Finance personnelle","body":"Suivre ses dépenses et planifier un petit objectif."},{"title":"Développement personnel","body":"Confiance, discipline, communication."},{"title":"Vie quotidienne","body":"Mieux gérer le temps, la famille et les priorités."}]},"features":{"title":"Un mentor qui revient avec toi","body":"Pas seulement un chatbot. Le produit garde le fil, avec ton accord, et te propose la prochaine action utile.","items":[{"title":"Plan personnalisé","body":"Un plan de 7 jours adapté à ton objectif et à ton temps."},{"title":"Missions courtes","body":"Des actions de 15 à 20 minutes, possibles sur téléphone."},{"title":"Rappels utiles","body":"Des rappels choisis par toi, aux heures qui te conviennent."},{"title":"Suivi de progression","body":"Pour voir les missions faites, les jours actifs et la prochaine étape."},{"title":"Points et badges","body":"Des encouragements simples pour renforcer la régularité."},{"title":"Mentor vocal","body":"Un mode micro prévu pour parler quand écrire est difficile."},{"title":"Mémoire contrôlée","body":"Tu vois, supprimes ou désactives ce que le mentor peut retenir."}]},"mentors":{"title":"Choisis le ton du mentor","body":"Le style change, le respect reste le même.","items":[{"title":"Coach","body":"Direct et énergique.","quote":"On avance avec une action simple maintenant."},{"title":"Ami","body":"Proche et rassurant.","quote":"On va y aller doucement, mais on y va."},{"title":"Professeur","body":"Structure et explications.","quote":"Voici pourquoi cette étape t'aide."},{"title":"Conseiller","body":"Calme et attentif.","quote":"Regardons d'abord ta situation."},{"title":"Équilibré","body":"Clair, humain, motivé.","quote":"Je te guide, tu gardes le contrôle."}]},"reality":{"title":"Adapté à la réalité haïtienne","body":"Léger, lisible et utile même quand la connexion est faible ou que la journée est déjà chargée.","items":["Fonctionne d'abord sur simple téléphone.","Pages légères et cache hors ligne pour revenir sans gaspiller de data.","Solutions réalistes avec peu de moyens, pas de promesses magiques.","Français et créole haïtien accessibles à tout moment."]},"privacy":{"title":"Tu contrôles tes données","body":"MENTOR AI doit mériter la confiance. Rien n'est envoyé sans consentement dans cette démo.","items":[{"title":"Voir la mémoire","body":"Consulter les informations que le mentor peut réutiliser."},{"title":"Supprimer","body":"Effacer une information ou tout recommencer."},{"title":"Désactiver","body":"Couper la mémoire, les notifications ou le micro."},{"title":"Choisir","body":"Partager seulement ce qui aide vraiment ton parcours."}]},"soon":{"title":"Bientôt, mais pas dans le MVP","body":"Le produit pourra évoluer plus tard, sans distraire le lancement.","note":"Maison connectée, objets physiques ou intégrations avancées restent hors MVP. La priorité est simple : passer de l'incertitude à une action utile aujourd'hui."},"cta":{"title":"Prêt à commencer petit ?","body":"La première version testera le parcours : se présenter, choisir un objectif, recevoir un plan et finir une mission.","button":"Revenir au début"},"footer":{"tagline":"Commençons ensemble.","links":[{"label":"Langue","href":"#top"},{"label":"Confidentialité","href":"#privacy"},{"label":"Contact","href":"mailto:contact@mentor-ai.local"}]}},"ht":{"a11y":{"skip":"Ale sou kontni an"},"controls":{"languageLabel":"Chwazi lang","fr":"FR","ht":"KREYÒL","theme":"Chanje mod klè oswa nwa"},"offline":"Koneksyon an fèb. Paj la toujou mache san entènèt.","hero":{"eyebrow":"Mentò dijital pou avanse jodi a","subtitle":"Ou pa bezwen konnen ki kote pou kòmanse. Ann kòmanse ansanm, ak yon plan senp, ti misyon kout, epi yon swivi ki respekte rit ou.","cta":"Kòmanse","secondary":"Gade kijan li mache","trustLabel":"Pwen fò","trust":["Fèt pou telefòn","Itilize ti data","Ou kontwole done ou"]},"missionPreview":{"aria":"Egzanp yon misyon jounen an nan aplikasyon an","topLeft":"Jodi a","topRight":"3 jou youn apre lòt","eyebrow":"Misyon jounen an","title":"Chwazi yon premye aksyon","intro":"Yon misyon klè 15 minit pou fè yon lide ki pa twò klè tounen aksyon.","duration":"15 min","points":"+10 pwen","task":"Ekri twa bagay ou konn fè, apre sa chwazi youn ou ka sèvi ak li semèn sa a.","progress":"Pwogrè misyon an","stats":[{"value":"42%","label":"plan"},{"value":"5","label":"misyon"},{"value":"80","label":"pwen"}],"button":"Misyon fini","done":"Misyon valide","toast":"+10 pwen. Pwochen etap la ouvri."},"problem":{"title":"Soti nan dout pou rive nan aksyon","body":"MENTOR AI ede lè tout bagay parèt twò gwo: lekòl, travay, lajan, fanmi, fatig. Objektif la se jwenn yon ti aksyon ki itil, pa regle tout bagay yon sèl kou.","states":[{"title":"Anvan","body":"Mwen pa konnen sa pou m fè, mwen ranvwaye, mwen konpare tèt mwen ak lòt moun."},{"title":"Apre","body":"Mwen wè sitiyasyon mwen, mwen chwazi yon direksyon, epi mwen fè yon misyon jodi a."}]},"steps":{"title":"Kijan li mache","body":"Yon chemen kout, yon kesyon chak fwa, pou efò a rete lejè menm lè ou pa gen anpil tan.","items":[{"title":"Mwen prezante tèt mwen","body":"Non, laj, lang, ak sa mwen dakò pataje."},{"title":"Mwen chwazi yon objektif","body":"Oswa mwen di mwen pa konnen ki kote pou kòmanse."},{"title":"Mwen resevwa plan mwen","body":"Yon plan 7 jou, klè, ou ka modifye."},{"title":"Mwen fè misyon mwen","body":"15 a 20 minit, epi yon pwochen etap."}]},"domains":{"title":"Sis domèn ki itil","body":"Aplikasyon an soti nan bezwen lavi chak jou epi li pwopoze objektif senp pou teste.","items":[{"title":"Etid","body":"Òganize devwa, revize, mande èd."},{"title":"Travay","body":"Prepare CV, chèche opòtinite, pratike."},{"title":"Antreprenarya","body":"Teste yon lide ak ti mwayen."},{"title":"Lajan pèsonèl","body":"Swiv depans epi planifye yon ti objektif."},{"title":"Devlopman pèsonèl","body":"Konfyans, disiplin, kominikasyon."},{"title":"Lavi chak jou","body":"Pi byen jere tan, fanmi ak priyorite."}]},"features":{"title":"Yon mentò ki kontinye ak ou","body":"Se pa sèlman yon chatbot. Pwodui a kenbe fil la, ak dakò ou, epi li pwopoze pwochen aksyon ki itil la.","items":[{"title":"Plan pèsonalize","body":"Yon plan 7 jou ki adapte ak objektif ou ak tan ou."},{"title":"Misyon kout","body":"Aksyon 15 a 20 minit, fasil sou telefòn."},{"title":"Rapèl itil","body":"Rapèl ou chwazi, nan lè ki bon pou ou."},{"title":"Swivi pwogrè","body":"Pou wè misyon fini, jou aktif ak pwochen etap la."},{"title":"Pwen ak badj","body":"Ti ankourajman pou ede w kenbe abitid la."},{"title":"Mentò vokal","body":"Yon mòd mikwo prevwa pou pale lè ekri difisil."},{"title":"Memwa ou kontwole","body":"Ou wè, efase oswa fèmen sa mentò a ka sonje."}]},"mentors":{"title":"Chwazi ton mentò a","body":"Stil la ka chanje, respè a rete menm jan.","items":[{"title":"Antrenè","body":"Dirèk epi bay enèji.","quote":"Ann avanse ak yon aksyon senp kounye a."},{"title":"Zanmi","body":"Pwòch epi rasire.","quote":"N ap pran sa dousman, men n ap avanse."},{"title":"Pwofesè","body":"Òganize ak eksplikasyon.","quote":"Men poukisa etap sa a ap ede ou."},{"title":"Konseye","body":"Kalm epi koute.","quote":"Ann gade sitiyasyon ou an premye."},{"title":"Ekilibre","body":"Klè, imen, motive.","quote":"M ap gide ou, ou kenbe kontwòl la."}]},"reality":{"title":"Adapte ak reyalite Ayiti","body":"Lejè, fasil pou li, epi itil menm lè koneksyon an fèb oswa jounen an deja chaje.","items":["Li mache an premye sou yon telefòn senp.","Paj yo lejè, gen kach offline pou pa gaspiye data.","Solisyon reyalis ak ti mwayen, san fo pwomès.","Franse ak kreyòl ayisyen disponib toutan."]},"privacy":{"title":"Ou kontwole done ou","body":"MENTOR AI dwe merite konfyans. Nan demo sa a, anyen pa voye san dakò ou.","items":[{"title":"Gade memwa a","body":"Verifye enfòmasyon mentò a ka itilize ankò."},{"title":"Efase","body":"Retire yon enfòmasyon oswa rekòmanse nèt."},{"title":"Fèmen","body":"Fèmen memwa, notifikasyon oswa mikwo."},{"title":"Chwazi","body":"Pataje sèlman sa ki vrèman ede chemen ou."}]},"soon":{"title":"Byento, men pa nan MVP a","body":"Pwodui a ka grandi pi ta, san li pa distrè premye lansman an.","note":"Kay konekte, objè fizik oswa entegrasyon avanse rete deyò MVP a. Priyorite a senp: soti nan dout pou rive nan yon aksyon itil jodi a."},"cta":{"title":"Pare pou kòmanse piti ?","body":"Premye vèsyon an ap teste chemen an: prezante tèt ou, chwazi yon objektif, resevwa yon plan epi fini yon misyon.","button":"Retounen anwo"},"footer":{"tagline":"Ann kòmanse ansanm.","links":[{"label":"Lang","href":"#top"},{"label":"Konfidansyalite","href":"#privacy"},{"label":"Kontak","href":"mailto:contact@mentor-ai.local"}]}}};
+
+const MODEL_SCHEMA = {
+  users: ["id", "firstName", "age", "language", "profile", "preferences", "createdAt"],
+  goals: ["userId", "goal", "category", "description", "startDate", "deadline", "status"],
+  missions: ["goalId", "description", "date", "duration", "status", "points"],
+  progress: ["userId", "goalId", "percent", "completedMissions", "streaks", "stats"],
+  reminders: ["userId", "type", "date", "time", "repeat", "status"],
+  conversations: ["userId", "date", "content", "context", "allowedMemory"],
+  preferences: ["language", "mentorStyle", "notifications", "schedule", "permissions"],
+};
+
+const memoryStore = {};
+const store = {
+  get(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch (error) {
+      return memoryStore[key] ?? null;
+    }
+  },
+  set(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (error) {
+      memoryStore[key] = value;
+    }
+  },
+  remove(key) {
+    try {
+      localStorage.removeItem(key);
+    } catch (error) {
+      delete memoryStore[key];
+    }
+  },
+};
+
+const state = {
+  lang: store.get("mentor-ai-lang") || "fr",
+  theme: store.get("mentor-ai-theme") || "light",
+  completed: store.get("mentor-ai-preview-completed") === "true",
+  dict: {},
+};
+
+const $ = (selector, parent = document) => parent.querySelector(selector);
+
+function pathValue(path) {
+  return path.split(".").reduce((value, key) => value?.[key], state.dict) ?? "";
+}
+
+function t(path, params = {}) {
+  let value = pathValue(path);
+  Object.entries(params).forEach(([key, replacement]) => {
+    value = value.replaceAll(`{${key}}`, replacement);
+  });
+  return value;
+}
+
+function list(path) {
+  const value = pathValue(path);
+  return Array.isArray(value) ? value : [];
+}
+
+async function loadTranslations(lang) {
+  state.dict = TRANSLATIONS[lang] || TRANSLATIONS.fr;
+  document.documentElement.lang = lang === "ht" ? "ht" : "fr";
+}
+
+function icon(index) {
+  return ["ET", "TR", "EN", "FI", "DP", "VQ", "15", "+", "AI", "%"][index] || "M";
+}
+
+function sectionHeading(titlePath, bodyPath) {
+  return `
+    <div class="section-heading">
+      <h2>${t(titlePath)}</h2>
+      <p>${t(bodyPath)}</p>
+    </div>
+  `;
+}
+
+function cardGrid(items, className, render) {
+  return `<div class="grid ${className}">${items.map(render).join("")}</div>`;
+}
+
+function renderHero() {
+  return `
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">${t("hero.eyebrow")}</span>
+          <h1 id="hero-title">MENTOR AI</h1>
+          <p class="hero-subtitle">${t("hero.subtitle")}</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#app">${t("hero.cta")}</a>
+            <a class="button button-secondary" href="#how">${t("hero.secondary")}</a>
+          </div>
+          <div class="trust-row" aria-label="${t("hero.trustLabel")}">
+            ${list("hero.trust").map((item) => `<div class="trust-item"><span class="trust-dot" aria-hidden="true"></span><span>${item}</span></div>`).join("")}
+          </div>
+        </div>
+        <div class="phone-shell" aria-label="${t("missionPreview.aria")}">
+          <div class="phone-screen">
+            <div class="phone-top">
+              <span>${t("missionPreview.topLeft")}</span>
+              <span>${t("missionPreview.topRight")}</span>
+            </div>
+            <div class="mission-preview">
+              <span class="eyebrow">${t("missionPreview.eyebrow")}</span>
+              <h2>${t("missionPreview.title")}</h2>
+              <p>${t("missionPreview.intro")}</p>
+              <div class="mission-card">
+                <div class="mission-meta">
+                  <span class="pill">${t("missionPreview.duration")}</span>
+                  <span class="pill">${t("missionPreview.points")}</span>
+                </div>
+                <p>${t("missionPreview.task")}</p>
+                <div class="mission-progress" aria-label="${t("missionPreview.progress")}">
+                  <span></span>
+                </div>
+                <div class="mini-stats">
+                  ${list("missionPreview.stats").map((item) => `<div class="mini-stat"><strong>${item.value}</strong><span>${item.label}</span></div>`).join("")}
+                </div>
+                <button class="button button-primary check-button" id="missionDone" type="button">${state.completed ? t("missionPreview.done") : t("missionPreview.button")}</button>
+                <div class="points-toast" id="pointsToast" aria-live="polite">${t("missionPreview.toast")}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderMain() {
+  const domains = list("domains.items");
+  const features = list("features.items");
+  const mentors = list("mentors.items");
+
+  $("#main").innerHTML = `
+    <div class="offline-note" id="offlineNote" role="status">${t("offline")}</div>
+    ${renderHero()}
+    <section class="section" id="problem">
+      <div class="section-inner split-visual">
+        <div>${sectionHeading("problem.title", "problem.body")}</div>
+        <div class="before-after">
+          ${list("problem.states").map((item) => `<div class="state-panel"><strong>${item.title}</strong><p>${item.body}</p></div>`).join("")}
+        </div>
+      </div>
+    </section>
+    <section class="section" id="how">
+      <div class="section-inner">
+        ${sectionHeading("steps.title", "steps.body")}
+        <div class="steps">
+          ${list("steps.items").map((item) => `<article class="step"><h3>${item.title}</h3><p>${item.body}</p></article>`).join("")}
+        </div>
+      </div>
+    </section>
+    <section class="section" id="domains">
+      <div class="section-inner">
+        ${sectionHeading("domains.title", "domains.body")}
+        ${cardGrid(domains, "domain-grid", (item, index) => `<article class="card domain-card"><span class="domain-icon" aria-hidden="true">${icon(index)}</span><div><h3>${item.title}</h3><p>${item.body}</p></div></article>`)}
+      </div>
+    </section>
+    <section class="section" id="features">
+      <div class="section-inner">
+        ${sectionHeading("features.title", "features.body")}
+        ${cardGrid(features, "feature-grid", (item, index) => `<article class="card feature-card"><span class="feature-icon" aria-hidden="true">${icon(index + 6)}</span><h3>${item.title}</h3><p>${item.body}</p></article>`)}
+      </div>
+    </section>
+    <section class="section" id="mentors">
+      <div class="section-inner">
+        ${sectionHeading("mentors.title", "mentors.body")}
+        ${cardGrid(mentors, "mentor-grid", (item) => `<article class="card mentor-card"><h3>${item.title}</h3><p>${item.body}</p><div class="mentor-quote">${item.quote}</div></article>`)}
+      </div>
+    </section>
+    <section class="section haiti-band" id="reality">
+      <div class="section-inner">
+        ${sectionHeading("reality.title", "reality.body")}
+        <div class="reality-list">
+          ${list("reality.items").map((item) => `<div class="reality-item">${item}</div>`).join("")}
+        </div>
+      </div>
+    </section>
+    <section class="section" id="privacy">
+      <div class="section-inner">
+        ${sectionHeading("privacy.title", "privacy.body")}
+        <div class="privacy-grid">
+          ${list("privacy.items").map((item) => `<article class="privacy-card card"><h3>${item.title}</h3><p>${item.body}</p></article>`).join("")}
+        </div>
+      </div>
+    </section>
+    <section class="section" id="soon">
+      <div class="section-inner">
+        ${sectionHeading("soon.title", "soon.body")}
+        <article class="coming-card card"><p>${t("soon.note")}</p></article>
+      </div>
+    </section>
+    <section class="cta-section" id="start">
+      <div class="section-inner">
+        <div class="cta-panel">
+          <div>
+            <h2>${t("cta.title")}</h2>
+            <p>${t("cta.body")}</p>
+          </div>
+          <a class="button button-primary" href="#app">${t("cta.button")}</a>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <strong>MENTOR AI</strong>
+          <p>${t("footer.tagline")}</p>
+        </div>
+        <div class="footer-links">
+          ${list("footer.links").map((link) => `<a href="${link.href}">${link.label}</a>`).join("")}
+        </div>
+      </div>
+    </footer>
+  `;
+
+  bindDynamicControls();
+}
+
+function translateStatic() {
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    node.textContent = t(node.dataset.i18n);
+  });
+  $("#languageSelect").innerHTML = `
+    <option value="fr">${t("controls.fr")}</option>
+    <option value="ht">${t("controls.ht")}</option>
+  `;
+  $("#languageSelect").value = state.lang;
+  $("#themeToggle").setAttribute("aria-label", t("controls.theme"));
+  $("#languageSelect").setAttribute("aria-label", t("controls.languageLabel"));
+}
+
+function bindDynamicControls() {
+  const button = $("#missionDone");
+  const toast = $("#pointsToast");
+  button?.addEventListener("click", () => {
+    state.completed = true;
+    store.set("mentor-ai-preview-completed", "true");
+    button.textContent = t("missionPreview.done");
+    toast.classList.remove("is-visible");
+    requestAnimationFrame(() => toast.classList.add("is-visible"));
+  });
+}
+
+function setTheme(theme) {
+  state.theme = theme;
+  document.documentElement.dataset.theme = theme;
+  store.set("mentor-ai-theme", theme);
+  $("#themeToggle").setAttribute("aria-pressed", String(theme === "dark"));
+}
+
+async function setLanguage(lang) {
+  state.lang = lang;
+  store.set("mentor-ai-lang", lang);
+  $("#languageSelect").value = lang;
+  await loadTranslations(lang);
+  translateStatic();
+  if (typeof syncLang === "function") syncLang(lang);
+  renderCurrent();
+}
+
+function handleConnectivity() {
+  const note = $("#offlineNote");
+  note?.classList.toggle("is-visible", !navigator.onLine);
+}
+
+async function init() {
+  setTheme(state.theme);
+  $("#languageSelect").value = state.lang;
+  $("#languageSelect").addEventListener("change", (event) => setLanguage(event.target.value));
+  $("#themeToggle").addEventListener("click", () => setTheme(state.theme === "dark" ? "light" : "dark"));
+
+  await loadTranslations(state.lang);
+  translateStatic();
+  renderCurrent();
+  handleConnectivity();
+  window.addEventListener("online", handleConnectivity);
+  window.addEventListener("offline", handleConnectivity);
+
+  window.MentorAIModelSchema = MODEL_SCHEMA;
+  window.MentorAIAppVersion = APP_VERSION;
+}
+
+document.addEventListener("DOMContentLoaded", init);
+
+    </script>
+    <script>
+
+/* =========================================================
+   MENTOR AI : démo MVP (parcours 1 à 7)
+   Partie 1 : textes FR / Kreyòl et mentorEngine
+   ========================================================= */
+const P = (fr, ht) => ({ fr, ht });
+
+function resolveLang(node, lang) {
+  if (Array.isArray(node)) return node;
+  if (node && typeof node === "object") {
+    const keys = Object.keys(node);
+    if (keys.length === 2 && "fr" in node && "ht" in node) return node[lang];
+    const out = {};
+    keys.forEach((key) => (out[key] = resolveLang(node[key], lang)));
+    return out;
+  }
+  return node;
+}
+
+/* Textes de l'interface : chaque phrase FR est écrite à côté de sa version Kreyòl.
+   (À faire relire par un locuteur natif du créole avant publication.) */
+const APP_TEXT = {
+  nav: {
+    label: P("Navigation de l'application", "Navigasyon aplikasyon an"),
+    today: P("Aujourd'hui", "Jodi a"),
+    plan: P("Plan", "Plan"),
+    mentor: P("Mentor", "Mentò"),
+    progress: P("Progrès", "Pwogrè"),
+    settings: P("Paramètres", "Paramèt"),
+  },
+  common: {
+    next: P("Continuer", "Kontinye"),
+    back: P("Retour", "Retounen"),
+    skip: P("Passer", "Sote"),
+    save: P("Enregistrer", "Anrejistre"),
+    cancel: P("Annuler", "Anile"),
+    edit: P("Modifier", "Modifye"),
+    remove: P("Supprimer", "Efase"),
+    up: P("Monter", "Monte"),
+    down: P("Descendre", "Desann"),
+    send: P("Envoyer", "Voye"),
+    min: P("min", "min"),
+    points: P("points", "pwen"),
+    day: P("Jour", "Jou"),
+    exit: P("Retour au site", "Tounen sou sit la"),
+    year: P("an", "an"),
+    years: P("ans", "an"),
+    dayOne: P("jour", "jou"),
+    dayMany: P("jours", "jou"),
+  },
+  welcome: {
+    title: P("Bienvenue. Présente-toi en une minute.", "Byenvini. Prezante tèt ou nan yon minit."),
+    sub: P(
+      "Quelques informations suffisent pour commencer. Tu choisis ce que tu partages.",
+      "Kèk enfòmasyon ase pou kòmanse. Se ou ki chwazi sa ou pataje.",
+    ),
+    firstName: P("Ton prénom", "Non ou"),
+    age: P("Ton âge", "Laj ou"),
+    language: P("Langue", "Lang"),
+    langFr: "Français",
+    langHt: "Kreyòl ayisyen",
+    shareTitle: P("Ce que j'accepte de partager et de conserver", "Sa m dakò pataje epi kenbe"),
+    share: {
+      age: P("Mon âge", "Laj mwen"),
+      studies: P("Mes études", "Etid mwen"),
+      skills: P("Mes compétences", "Konpetans mwen"),
+      situation: P("Ma situation et mon temps libre", "Sitiyasyon mwen ak tan mwen genyen"),
+      difficulty: P("Mes difficultés", "Difikilte m yo"),
+      device: P("Mon téléphone et ma connexion", "Telefòn mwen ak koneksyon mwen"),
+    },
+    trust: P(
+      "Tu contrôles tes données. Tu peux tout voir, supprimer ou désactiver dans les paramètres.",
+      "Ou kontwole done ou. Ou ka wè, efase oswa fèmen tout bagay nan paramèt yo.",
+    ),
+    start: P("Commencer", "Kòmanse"),
+    errName: P("Écris ton prénom pour continuer.", "Ekri non ou pou kontinye."),
+    errAge: P("Entre un âge entre 10 et 99 ans.", "Mete yon laj ant 10 ak 99 an."),
+  },
+  quiz: {
+    progress: P("Question {n} sur {total}", "Kesyon {n} sou {total}"),
+    hintMulti: P("Choisis jusqu'à 3 réponses.", "Chwazi jiska 3 repons."),
+    level: {
+      q: P("Quel est ton niveau d'études ?", "Ki nivo etid ou ?"),
+      options: P(
+        ["École fondamentale", "Secondaire", "Université", "Formation professionnelle", "Pas à l'école en ce moment"],
+        ["Fondamantal", "Segondè", "Inivèsite", "Fòmasyon pwofesyonèl", "Mwen pa lekòl kounye a"],
+      ),
+    },
+    field: {
+      q: P("Quel domaine t'attire le plus ?", "Ki domèn ki atire ou plis ?"),
+      options: P(
+        ["Informatique et technologie", "Commerce et gestion", "Santé", "Éducation", "Agriculture et environnement", "Art et communication", "Je ne sais pas encore"],
+        ["Enfòmatik ak teknoloji", "Komès ak jesyon", "Sante", "Edikasyon", "Agrikilti ak anviwònman", "Atizay ak kominikasyon", "Mwen poko konnen"],
+      ),
+    },
+    skills: {
+      q: P("Qu'est-ce que tu sais déjà faire ?", "Kisa ou deja konn fè ?"),
+      options: P(
+        ["Bien parler et expliquer", "Utiliser un téléphone ou un ordinateur", "Vendre et négocier", "Écrire, dessiner ou créer", "Aider ou enseigner", "Réparer ou construire", "Cuisiner, coudre, faire de l'artisanat"],
+        ["Pale epi eksplike byen", "Itilize yon telefòn oswa yon òdinatè", "Vann epi negosye", "Ekri, desine oswa kreye", "Ede oswa anseye", "Repare oswa konstwi", "Kwit manje, koud, fè atizana"],
+      ),
+    },
+    situation: {
+      q: P("Quelle est ta situation en ce moment ?", "Ki sitiyasyon ou kounye a ?"),
+      options: P(
+        ["J'étudie", "Je travaille", "J'étudie et je travaille", "Ni l'un ni l'autre pour l'instant"],
+        ["M ap etidye", "M ap travay", "M ap etidye epi m ap travay", "Okenn nan de yo pou kounye a"],
+      ),
+    },
+    time: {
+      q: P("Combien de temps peux-tu donner chaque jour ?", "Konbyen tan ou ka bay chak jou ?"),
+      options: P(
+        ["10 minutes", "20 minutes", "30 minutes", "45 minutes ou plus"],
+        ["10 minit", "20 minit", "30 minit", "45 minit oswa plis"],
+      ),
+    },
+    difficulty: {
+      q: P("Qu'est-ce qui te bloque le plus ?", "Kisa ki bloke ou plis ?"),
+      options: P(
+        ["Je ne sais pas par où commencer", "Je manque d'argent", "Je manque de temps", "Je manque de discipline", "Je manque de confiance", "Je manque d'orientation"],
+        ["Mwen pa konnen ki kote pou m kòmanse", "Mwen manke lajan", "Mwen manke tan", "Mwen manke disiplin", "Mwen manke konfyans", "Mwen manke oryantasyon"],
+      ),
+    },
+    device: {
+      q: P("Comment te connectes-tu ?", "Kijan ou konekte ?"),
+      options: P(
+        ["Téléphone seulement, avec peu de data", "Téléphone, avec du Wi-Fi parfois", "Téléphone et ordinateur"],
+        ["Telefòn sèlman, ak ti data", "Telefòn, ak Wi-Fi pafwa", "Telefòn ak òdinatè"],
+      ),
+    },
+  },
+  goal: {
+    title: P("Qu'est-ce que tu veux améliorer ?", "Kisa ou vle amelyore ?"),
+    sub: P("Choisis un domaine. Tu pourras changer plus tard.", "Chwazi yon domèn. Ou ka chanje apre."),
+    unsure: P("Je ne sais pas par où commencer", "Mwen pa konnen ki kote pou m kòmanse"),
+    unsureHint: P("Je te pose quelques questions.", "M ap poze ou kèk kesyon."),
+    subTitle: P("Dans « {cat} », que veux-tu faire ?", "Nan « {cat} », kisa ou vle fè ?"),
+    cats: {
+      study: P("Études", "Etid"),
+      work: P("Travail", "Travay"),
+      business: P("Entrepreneuriat", "Antreprenarya"),
+      money: P("Finance personnelle", "Lajan pèsonèl"),
+      growth: P("Développement personnel", "Devlopman pèsonèl"),
+      life: P("Vie quotidienne", "Lavi chak jou"),
+    },
+  },
+  guide: {
+    title: P("Trouvons ta direction", "Ann jwenn direksyon ou"),
+    sub: P("Réponds en touchant un choix. Il n'y a pas de mauvaise réponse.", "Reponn lè w touche yon chwa. Pa gen move repons."),
+    free: P("Ou écris avec tes mots", "Oswa ekri ak pwòp mo ou"),
+    freePlaceholder: P("Ex. : je veux trouver du travail", "Ex.: mwen vle jwenn travay"),
+    notUnderstood: P("Je n'ai pas bien compris. Choisis une réponse ci-dessous.", "M pa konprann byen. Chwazi yon repons anba a."),
+    q: {
+      domain: P("Quand tu penses à ton avenir, qu'est-ce qui compte le plus pour toi en ce moment ?", "Lè ou panse ak avni ou, kisa ki pi enpòtan pou ou kounye a ?"),
+      stage: P("Où en es-tu aujourd'hui sur ce sujet ?", "Ki kote ou ye jodi a sou sijè sa a ?"),
+      help: P("Qu'est-ce qui t'aiderait le plus cette semaine ?", "Kisa ki t ap ede ou plis semèn sa a ?"),
+      goal: P("Voici des pistes possibles. Laquelle te parle le plus ?", "Men kèk pis posib. Kilès ki pale ou plis ?"),
+    },
+    opts: {
+      domain: P(
+        ["Mes études", "Trouver un travail", "Créer ma propre activité", "Mieux gérer mon argent", "Prendre confiance en moi", "Organiser ma vie de tous les jours"],
+        ["Etid mwen", "Jwenn yon travay", "Kreye pwòp aktivite m", "Jere lajan m pi byen", "Pran konfyans nan tèt mwen", "Òganize lavi m chak jou"],
+      ),
+      stage: P(
+        ["Je n'ai encore rien commencé", "J'ai essayé, mais j'ai arrêté", "Je fais un peu, mais sans méthode"],
+        ["Mwen poko kòmanse anyen", "M te eseye, men m te sispann", "M fè yon ti jan, men san metòd"],
+      ),
+      help: P(
+        ["Un plan clair", "Une petite action facile", "Quelqu'un qui me rappelle de continuer", "Comprendre mes options"],
+        ["Yon plan klè", "Yon ti aksyon fasil", "Yon moun ki raple m kontinye", "Konprann posibilite m yo"],
+      ),
+    },
+    summaryTitle: P("Voici ta situation et ta première étape", "Men sitiyasyon ou ak premye etap ou"),
+    situation: P("Tu veux avancer dans « {cat} ». Aujourd'hui : {stage}.", "Ou vle avanse nan « {cat} ». Jodi a: {stage}."),
+    rowSituation: P("Situation actuelle", "Sitiyasyon kounye a"),
+    rowOptions: P("Possibilités", "Posibilite"),
+    rowGoal: P("Objectif choisi", "Objektif ou chwazi"),
+    rowStep: P("Première étape", "Premye etap"),
+    rowMission: P("Première mission", "Premye misyon"),
+    confirm: P("Voir mon plan", "Wè plan mwen"),
+    change: P("Changer d'objectif", "Chanje objektif"),
+  },
+  plan: {
+    title: P("Ton plan de 7 jours", "Plan 7 jou ou"),
+    sub: P("Modifie-le comme tu veux. Il doit s'adapter à ta réalité.", "Modifye l jan ou vle. Li dwe adapte ak reyalite ou."),
+    goalLabel: P("Objectif : {goal}", "Objektif: {goal}"),
+    validate: P("Valider mon plan", "Valide plan mwen"),
+    add: P("Ajouter une tâche", "Ajoute yon tach"),
+    titleLabel: P("Titre", "Tit"),
+    taskLabel: P("Consigne", "Konsiy"),
+    errTitle: P("Écris un titre pour cette tâche.", "Ekri yon tit pou tach sa a."),
+    errEmpty: P("Ajoute au moins une tâche pour valider ton plan.", "Ajoute omwen yon tach pou valide plan ou."),
+    empty: P("Ton plan est vide. Ajoute une première tâche.", "Plan ou an vid. Ajoute yon premye tach."),
+    noGoal: P("Tu n'as pas encore de plan. Choisis un objectif pour en recevoir un.", "Ou poko gen plan. Chwazi yon objektif pou resevwa youn."),
+    chooseGoal: P("Choisir un objectif", "Chwazi yon objektif"),
+    done: P("Fait", "Fè"),
+    current: P("En cours", "An kou"),
+    dayShort: P("J{n}", "J{n}"),
+  },
+  today: {
+    greeting: P("Bonjour {name}", "Bonjou {name}"),
+    title: P("Mission du jour", "Misyon jounen an"),
+    day: P("Jour {n} sur {total}", "Jou {n} sou {total}"),
+    streak: P("Série : {n} {d}", "Seri: {n} {d}"),
+    done: P("✅ Mission accomplie", "✅ Misyon fini"),
+    hard: P("Cette mission est trop difficile", "Misyon sa a twò difisil"),
+    easierTag: P("Version plus simple", "Vèsyon pi senp"),
+    easierText: P(
+      "Fais seulement le début de cette mission pendant 5 minutes : « {title} ». Le reste peut attendre demain.",
+      "Fè sèlman kòmansman misyon sa a pandan 5 minit: « {title} ». Rès la ka tann demen.",
+    ),
+    full: P("Revenir à la mission complète", "Retounen sou misyon konplè a"),
+    earned: P("+{n} points", "+{n} pwen"),
+    bonus: P("Bonus de série : +{n} points", "Bonis seri: +{n} pwen"),
+    newBadge: P("Nouveau badge : {name}", "Nouvo badj: {name}"),
+    next: P("Mission suivante", "Misyon swivan"),
+    tomorrow: P("À demain", "Rive demen"),
+    nextUp: P("Prochaine étape : {title}", "Pwochen etap: {title}"),
+    restTitle: P("Mission faite pour aujourd'hui", "Misyon fè pou jodi a"),
+    restBody: P("Repose-toi. Demain, une nouvelle étape t'attend.", "Repoze ou. Demen, yon nouvo etap ap tann ou."),
+    extra: P("Faire une mission de plus", "Fè yon lòt misyon"),
+    goalDone: P("Objectif atteint !", "Objektif atteni !"),
+    goalDoneBody: P("Tu as terminé ton plan. +50 points.", "Ou fini plan ou an. +50 pwen."),
+    newGoal: P("Choisir un nouvel objectif", "Chwazi yon nouvo objektif"),
+    planDone: P("Toutes les tâches de ton plan sont faites.", "Tout tach nan plan ou yo fini."),
+    addTask: P("Ajouter une tâche au plan", "Ajoute yon tach nan plan an"),
+    reminderTip: P("Tu veux un rappel chaque jour ? Active-le dans Paramètres.", "Ou vle yon rapèl chak jou ? Aktive l nan Paramèt."),
+    noGoal: P("Choisis un objectif pour recevoir ta première mission.", "Chwazi yon objektif pou resevwa premye misyon ou."),
+    chooseGoal: P("Choisir un objectif", "Chwazi yon objektif"),
+  },
+  mentor: {
+    title: P("Parle avec ton mentor", "Pale ak mentò ou"),
+    greeting: P("Salut {name}. Comment tu te sens aujourd'hui ?", "Bonjou {name}. Kijan ou santi w jodi a ?"),
+    placeholder: P("Écris ton message", "Ekri mesaj ou"),
+    send: P("Envoyer", "Voye"),
+    mic: P("Parler", "Pale"),
+    micOff: P("Autorise d'abord le microphone dans Paramètres.", "Otorize mikwofòn lan nan Paramèt anvan."),
+    micSoon: P("Le mode vocal arrive bientôt. Pour l'instant, écris-moi.", "Mòd vokal la ap vini byento. Pou kounye a, ekri m."),
+    chips: P(
+      ["Je suis découragé", "Quelle est ma mission ?", "Je n'ai pas le temps", "Aide-moi à dormir"],
+      ["M dekouraje", "Ki misyon m nan ?", "M pa gen tan", "Ede m dòmi"],
+    ),
+  },
+  progress: {
+    title: P("Tes progrès", "Pwogrè ou"),
+    points: P("Points", "Pwen"),
+    streak: P("Série", "Seri"),
+    missions: P("Missions faites", "Misyon fini"),
+    active: P("Jours actifs", "Jou aktif"),
+    time: P("Temps total", "Tan total"),
+    next: P("Prochaine mission", "Pwochen misyon"),
+    goals: P("Objectifs", "Objektif"),
+    noGoals: P("Aucun objectif pour l'instant.", "Poko gen objektif."),
+    badges: P("Points et badges", "Pwen ak badj"),
+    locked: P("À débloquer", "Pou debloke"),
+    hm: P("{h} h {m} min", "{h} è {m} min"),
+    m: P("{m} min", "{m} min"),
+    noNext: P("Aucune mission en attente", "Pa gen misyon k ap tann"),
+    rules: P(
+      "+10 points par mission, +50 points par objectif atteint, bonus à partir de 3 jours de suite.",
+      "+10 pwen pou chak misyon, +50 pwen pou chak objektif atenn, bonis apati 3 jou youn apre lòt.",
+    ),
+  },
+  badges: {
+    first: { name: P("Premier pas", "Premye pa"), desc: P("Première mission terminée", "Premye misyon fini") },
+    streak3: { name: P("3 jours d'affilée", "3 jou youn apre lòt"), desc: P("Trois jours actifs de suite", "Twa jou aktif youn apre lòt") },
+    five: { name: P("5 missions", "5 misyon"), desc: P("Cinq missions terminées", "Senk misyon fini") },
+    goal: { name: P("Objectif atteint", "Objektif atteni"), desc: P("Un plan terminé de A à Z", "Yon plan fini nèt")},
+  },
+  settings: {
+    title: P("Paramètres", "Paramèt"),
+    language: P("Langue", "Lang"),
+    mentorTitle: P("Style du mentor", "Stil mentò a"),
+    notifTitle: P("Notifications et rappels", "Notifikasyon ak rapèl"),
+    notifOn: P("Activer les rappels", "Aktive rapèl yo"),
+    notifNote: P("Dans cette démo, aucun rappel n'est vraiment envoyé.", "Nan demo sa a, pa gen okenn rapèl ki voye pou tout bon."),
+    rem: { morning: P("Matin", "Maten"), afternoon: P("Après-midi", "Apre midi"), evening: P("Soir", "Aswè") },
+    remOn: P("Activé", "Aktive"),
+    micTitle: P("Microphone", "Mikwofòn"),
+    micOn: P("Autoriser le microphone", "Otorize mikwofòn lan"),
+    micNote: P("Le mode vocal n'est pas encore actif. Ce choix est gardé pour plus tard.", "Mòd vokal la poko aktif. Chwa sa a rete pou pita."),
+    memTitle: P("Mémoire", "Memwa"),
+    memShare: P("Ce que je partage", "Sa m pataje"),
+    memOn: P("Garder ce que je partage", "Kenbe sa m pataje"),
+    memOffNote: P("La mémoire est désactivée : rien de nouveau n'est gardé.", "Memwa a fèmen: anyen nouvo pa kenbe."),
+    memList: P("Ce que Mentor AI retient", "Sa Mentor AI sonje"),
+    memEmpty: P("Rien n'est mémorisé.", "Pa gen anyen ki sonje."),
+    memDeleteAll: P("Tout supprimer", "Efase tout"),
+    memLabels: {
+      age: P("Âge", "Laj"),
+      level: P("Niveau d'études", "Nivo etid"),
+      field: P("Domaine", "Domèn"),
+      skills: P("Compétences", "Konpetans"),
+      situation: P("Situation", "Sitiyasyon"),
+      time: P("Temps par jour", "Tan chak jou"),
+      difficulty: P("Difficulté", "Difikilte"),
+      device: P("Connexion", "Koneksyon"),
+    },
+    dataTitle: P("Mes données", "Done m yo"),
+    reset: P("Réinitialiser mes données", "Reyinisyalize done m yo"),
+    resetConfirm: P(
+      "Cela efface ton profil, tes objectifs, ton plan et tes points. Continuer ?",
+      "Sa ap efase pwofil ou, objektif ou yo, plan ou ak pwen ou yo. Kontinye ?",
+    ),
+    resetYes: P("Oui, tout effacer", "Wi, efase tout"),
+  },
+  toast: {
+    planValidated: P("Plan validé. Ta première mission t'attend.", "Plan valide. Premye misyon ou ap tann ou."),
+    planSaved: P("Plan mis à jour.", "Plan mete ajou."),
+    memDeleted: P("Information supprimée.", "Enfòmasyon efase."),
+    allDeleted: P("Mémoire effacée.", "Memwa efase."),
+    resetDone: P("Données réinitialisées.", "Done reyinisyalize."),
+    saved: P("Enregistré.", "Anrejistre."),
+  },
+};
+
+/* ---------------------------------------------------------
+   mentorEngine : IA SIMULÉE
+   Toutes les fonctions sont asynchrones (async) : pour brancher une vraie IA,
+   remplace uniquement le corps de ces fonctions par un appel à TON backend
+   (par exemple fetch("/api/mentor/plan")). Ne mets jamais de clé API dans le navigateur.
+   --------------------------------------------------------- */
+const S = (tf, kf, th, kh) => ({ title: P(tf, th), task: P(kf, kh) });
+const SUB = (id, fr, ht) => ({ id, label: P(fr, ht) });
+
+const SUBGOALS = {
+  study: [
+    SUB("exam", "Préparer un examen", "Prepare yon egzamen"),
+    SUB("learn", "Apprendre une matière ou une langue", "Aprann yon matyè oswa yon lang"),
+    SUB("skill", "Développer une compétence", "Devlope yon konpetans"),
+  ],
+  work: [
+    SUB("job", "Chercher un emploi", "Chèche yon travay"),
+    SUB("interview", "Préparer un entretien", "Prepare yon entèvyou"),
+    SUB("cv", "Améliorer mon CV", "Amelyore CV mwen"),
+    SUB("skills", "Développer mes compétences", "Devlope konpetans mwen"),
+  ],
+  business: [
+    SUB("idea", "Trouver une idée", "Jwenn yon lide"),
+    SUB("start", "Commencer une petite activité", "Kòmanse yon ti aktivite"),
+    SUB("sell", "Apprendre à vendre", "Aprann vann"),
+    SUB("manage", "Comprendre la gestion d'une entreprise", "Konprann jesyon yon biznis"),
+  ],
+  money: [
+    SUB("budget", "Faire un budget", "Fè yon bidjè"),
+    SUB("save", "Apprendre à économiser", "Aprann ekonomize"),
+    SUB("manage", "Mieux gérer mon argent", "Jere lajan m pi byen"),
+  ],
+  growth: [
+    SUB("confidence", "Prendre confiance en moi", "Pran konfyans nan tèt mwen"),
+    SUB("communication", "Mieux communiquer", "Kominike pi byen"),
+    SUB("discipline", "Gagner en discipline", "Gen plis disiplin"),
+    SUB("organization", "Mieux m'organiser", "Òganize m pi byen"),
+  ],
+  life: [
+    SUB("sleep", "Mieux dormir", "Dòmi pi byen"),
+    SUB("sport", "Faire du sport", "Fè espò"),
+    SUB("habits", "Créer de bonnes habitudes", "Kreye bon abitid"),
+    SUB("time", "Mieux gérer mon temps", "Jere tan m pi byen"),
+  ],
+};
+
+const PLAN_BODY = {
+  study: [
+    S("Organise ton temps", "Note les jours et les heures où tu peux étudier cette semaine. Même 15 minutes comptent.", "Òganize tan ou", "Note ki jou ak ki lè ou ka etidye semèn sa a. Menm 15 minit konte."),
+    S("Choisis ta matière clé", "Prends la matière ou le chapitre le plus important et écris 3 choses que tu ne comprends pas encore.", "Chwazi matyè kle ou", "Pran matyè oswa chapit ki pi enpòtan an epi ekri 3 bagay ou poko konprann."),
+    S("Étudie sans distraction", "Mets ton téléphone en silencieux et révise un seul point. Écris ce que tu as retenu.", "Etidye san distraksyon", "Mete telefòn ou an silans epi revize yon sèl pwen. Ekri sa ou te retni."),
+    S("Teste-toi", "Sans regarder tes notes, explique le point d'hier à voix haute ou par écrit.", "Teste tèt ou", "San gade nòt ou yo, eksplike pwen yè a a vwa wo oswa alekri."),
+    S("Demande de l'aide", "Pose une question à un camarade, un professeur ou un proche sur ce que tu ne comprends pas.", "Mande èd", "Poze yon kamarad, yon pwofesè oswa yon pwòch yon kesyon sou sa ou pa konprann."),
+  ],
+  work: [
+    S("Liste tes compétences", "Écris 5 choses que tu sais faire, même si tu les as apprises en dehors de l'école.", "Fè lis konpetans ou", "Ekri 5 bagay ou konn fè, menm si ou aprann yo deyò lekòl."),
+    S("Prépare ton CV", "Écris une version simple d'une page : contact, études, expériences, compétences.", "Prepare CV ou", "Ekri yon vèsyon senp yon paj: kontak, etid, eksperyans, konpetans."),
+    S("Trouve 3 opportunités", "Cherche trois offres, stages ou personnes à contacter. Note leur nom et comment les joindre.", "Jwenn 3 opòtinite", "Chèche twa òf, estaj oswa moun pou kontakte. Note non yo ak kijan pou jwenn yo."),
+    S("Présente-toi en une minute", "Prépare une courte présentation : qui tu es, ce que tu sais faire, ce que tu cherches.", "Prezante tèt ou nan yon minit", "Prepare yon ti prezantasyon: ki moun ou ye, sa ou konn fè, sa w ap chèche."),
+    S("Envoie une candidature", "Envoie ton CV ou un message à une opportunité de ta liste.", "Voye yon kandidati", "Voye CV ou oswa yon mesaj bay yon opòtinite ki nan lis ou a."),
+  ],
+  business: [
+    S("Observe un besoin", "Note 3 problèmes que les gens de ton quartier rencontrent chaque jour.", "Obsève yon bezwen", "Note 3 pwoblèm moun nan katye ou rankontre chak jou."),
+    S("Choisis une idée simple", "Choisis une idée que tu peux tester avec presque rien. Écris à qui tu la vendrais.", "Chwazi yon lide senp", "Chwazi yon lide ou ka teste ak prèske anyen. Ekri a ki moun ou t ap vann li."),
+    S("Calcule ton prix", "Liste ce que ça te coûte et ton prix de vente. Vérifie que tu gagnes quelque chose.", "Kalkile pri ou", "Fè lis sa sa koute w ak pri vant ou. Verifye ou ap genyen yon bagay."),
+    S("Parle à 3 clients possibles", "Demande à trois personnes si elles achèteraient, et à quel prix.", "Pale ak 3 kliyan posib", "Mande twa moun si yo t ap achte, epi ak ki pri."),
+    S("Fais une première vente test", "Propose ton idée à une personne. Note ce qui a marché et ce qu'il faut changer.", "Fè yon premye vant tès", "Pwopoze lide ou bay yon moun. Note sa ki mache ak sa ki bezwen chanje."),
+  ],
+  money: [
+    S("Note tes entrées d'argent", "Écris tout l'argent que tu reçois dans un mois, même les petites sommes.", "Note lajan k ap antre", "Ekri tout lajan ou resevwa nan yon mwa, menm ti kòb yo."),
+    S("Note tes dépenses", "Écris tes dépenses de cette semaine : transport, nourriture, data, autres.", "Note depans ou yo", "Ekri depans ou semèn sa a: transpò, manje, data, lòt bagay."),
+    S("Sépare besoins et envies", "Classe tes dépenses en besoins et en envies. Choisis une envie à réduire.", "Separe bezwen ak anvi", "Klase depans ou yo an bezwen ak anvi. Chwazi yon anvi pou diminye."),
+    S("Fixe un petit objectif", "Choisis un montant réaliste à mettre de côté cette semaine, même petit.", "Fikse yon ti objektif", "Chwazi yon montan reyalis pou mete sou kote semèn sa a, menm si li piti."),
+    S("Mets de côté", "Mets ce montant dans un endroit sûr et note-le.", "Mete sou kote", "Mete montan sa a yon kote ki an sekirite epi note li."),
+  ],
+  growth: [
+    S("Nomme tes forces", "Écris 3 qualités que tu as et un moment où tu les as montrées.", "Non fòs ou yo", "Ekri 3 kalite ou genyen ak yon moman kote ou te montre yo."),
+    S("Choisis une petite habitude", "Choisis une habitude de 5 minutes que tu peux faire chaque jour.", "Chwazi yon ti abitid", "Chwazi yon abitid 5 minit ou ka fè chak jou."),
+    S("Pratique à voix haute", "Dis à voix haute, devant un miroir ou à un proche, une chose que tu veux améliorer.", "Pratike a vwa wo", "Di a vwa wo, devan yon glas oswa bay yon pwòch, yon bagay ou vle amelyore."),
+    S("Fais une action qui fait peur", "Fais une petite chose qui te met mal à l'aise : poser une question, saluer, proposer.", "Fè yon aksyon ki fè ou pè", "Fè yon ti bagay ki fè ou jennen: poze yon kesyon, salye, pwopoze."),
+    S("Demande un retour", "Demande à une personne de confiance ce qu'elle voit comme tes progrès.", "Mande yon retounen", "Mande yon moun ou fè konfyans sa li wè kòm pwogrè ou."),
+  ],
+  life: [
+    S("Note ta journée type", "Écris à quelle heure tu te lèves, travailles, manges et dors.", "Note jounen tipik ou", "Ekri a ki lè ou leve, travay, manje epi dòmi."),
+    S("Choisis une habitude", "Choisis une seule habitude à améliorer : sommeil, sport, repas ou organisation.", "Chwazi yon abitid", "Chwazi yon sèl abitid pou amelyore: dòmi, espò, manje oswa òganizasyon."),
+    S("Fais-la pendant 15 minutes", "Fais cette habitude pendant 15 minutes aujourd'hui.", "Fè l pandan 15 minit", "Fè abitid sa a pandan 15 minit jodi a."),
+    S("Prépare demain", "Ce soir, écris les 3 choses les plus importantes à faire demain.", "Prepare demen", "Aswè a, ekri 3 bagay ki pi enpòtan pou fè demen."),
+    S("Garde le rythme", "Refais ton habitude et note comment tu te sens.", "Kenbe rit la", "Refè abitid ou an epi note kijan ou santi w."),
+  ],
+};
+
+const ENCOURAGE = {
+  done: {
+    coach: P("Bien joué. Pas de pause : demain, on continue.", "Bon travay. Pa kanpe: demen n ap kontinye."),
+    friend: P("Bravo, je suis content pour toi. Tu avances à ton rythme.", "Bravo, m kontan pou ou. Ou ap avanse nan rit ou."),
+    teacher: P("Très bien. Chaque petite étape construit la suivante.", "Trè byen. Chak ti etap bati sa ki vini apre a."),
+    advisor: P("Mission validée. Tu te rapproches de ton objectif.", "Misyon valide. Ou ap pwoche pi pre objektif ou."),
+    balanced: P("Bravo. Un pas de plus, et tu gardes le contrôle.", "Bravo. Yon pa anplis, epi ou kenbe kontwòl la."),
+  },
+  hard: {
+    coach: P("Pas de souci : on réduit, mais on ne s'arrête pas.", "Pa gen pwoblèm: n ap diminye l, men n pa kanpe."),
+    friend: P("Pas grave, on va faire plus simple ensemble.", "Pa grav, n ap fè l pi senp ansanm."),
+    teacher: P("Simplifions : une plus petite étape se comprend mieux.", "Ann senplifye: yon ti etap pi piti pi fasil pou konprann."),
+    advisor: P("Adaptons la mission à ta situation.", "Ann adapte misyon an ak sitiyasyon ou."),
+    balanced: P("Je réduis la mission. Tu gardes le rythme.", "M ap diminye misyon an. Ou kenbe rit la."),
+  },
+};
+
+const OPENERS = {
+  coach: P("Allez, on avance.", "Ale, n ap avanse."),
+  friend: P("Je suis avec toi.", "M avè w."),
+  teacher: P("Voyons ça calmement.", "Ann gade sa dousman."),
+  advisor: P("Regardons ta situation.", "Ann gade sitiyasyon ou."),
+  balanced: P("", ""),
+};
+
+const CHAT = {
+  discouraged: P(
+    "C'est normal d'avoir des jours difficiles. Fais juste une chose de 5 minutes aujourd'hui, et on verra demain.",
+    "Nòmal pou gen jou ki difisil. Fè jis yon sèl bagay 5 minit jodi a, epi n ap wè demen.",
+  ),
+  sleep: P(
+    "Essaie cette routine : range ton téléphone, respire lentement 5 fois, écris les 3 choses à faire demain, puis éteins la lumière.",
+    "Eseye woutin sa a: mete telefòn ou sou kote, respire dousman 5 fwa, ekri 3 bagay pou fè demen, epi etenn limyè a.",
+  ),
+  mission: P("Ta mission : « {title} » ({n} min).", "Misyon ou: « {title} » ({n} min)."),
+  noMission: P("Choisis d'abord un objectif, puis je te donnerai ta mission.", "Chwazi yon objektif an premye, apre sa m ap ba ou misyon ou."),
+  plan: P("Ton plan est dans l'onglet Plan. Tu peux le modifier quand tu veux.", "Plan ou an nan onglè Plan an. Ou ka modifye l lè ou vle."),
+  time: P(
+    "Pas de souci. Choisis « Cette mission est trop difficile » pour une version de 5 minutes.",
+    "Pa gen pwoblèm. Chwazi « Misyon sa a twò difisil » pou yon vèsyon 5 minit.",
+  ),
+  fallback: P(
+    "Je t'écoute. Dis-moi comment tu te sens ou ce qui te bloque, ou demande ta mission du jour.",
+    "M ap koute w. Di m kijan ou santi w oswa sa ki bloke w, oswa mande misyon jounen an.",
+  ),
+};
+
+const norm = (s) => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+const KEYWORDS = {
+  study: /etud|ecole|lekol|examen|egzamen|universit|inivesite|reviser|revize/,
+  work: /travail|emploi|\bjob\b|travay|chomage|\bcv\b|entretien|entevyou/,
+  business: /vend|vant|business|biznis|entrepr|antrepriz|antrepren|commerce|komes|aktivite/,
+  money: /argent|budget|econom|lajan|bidje|depens|depans/,
+  growth: /confiance|konfyans|disciplin|communic|kominik|timid|leadership/,
+  life: /sommeil|dormir|sport|espo|habitude|abitid|domi|organis|oganiz|\btemps\b|\btan\b/,
+};
+
+const MentorEngine = {
+  categories: ["study", "work", "business", "money", "growth", "life"],
+
+  subGoals(cat) {
+    return SUBGOALS[cat] || [];
+  },
+
+  detectCategory(text) {
+    const value = norm(text);
+    return Object.keys(KEYWORDS).find((cat) => KEYWORDS[cat].test(value)) || null;
+  },
+
+  /* Parcours « Je ne sais pas par où commencer » : renvoie la prochaine question ou null. */
+  async getNextQuestion(answers) {
+    if (!answers.domain) return { id: "domain", values: this.categories };
+    if (!answers.stage) return { id: "stage", values: ["none", "stopped", "nomethod"] };
+    if (!answers.help) return { id: "help", values: ["plan", "easy", "reminder", "options"] };
+    if (!answers.goal) return { id: "goal", values: this.subGoals(answers.domain).map((item) => item.id) };
+    return null;
+  },
+
+  /* Plan de 7 jours : { title: {fr,ht}, task: {fr,ht}, duration, points, status } */
+  async generatePlan(cat, subId, ctx) {
+    const sub = this.subGoals(cat).find((item) => item.id === subId) || this.subGoals(cat)[0];
+    const label = sub.label;
+    const time = Number(ctx.time) || 20;
+    const duration = ctx.help === "easy" ? Math.min(time, 15) : time;
+    const first = {
+      title: P("Pourquoi cet objectif ?", "Poukisa objektif sa a ?"),
+      task: P(
+        `Écris en deux phrases pourquoi « ${label.fr} » est important pour toi.`,
+        `Ekri nan de fraz poukisa « ${label.ht} » enpòtan pou ou.`,
+      ),
+    };
+    const last = {
+      title: P("Fais le bilan", "Fè bilan an"),
+      task: P(
+        `Regarde ce que tu as fait cette semaine pour « ${label.fr} ». Écris ce qui a marché et la prochaine étape.`,
+        `Gade sa ou fè semèn sa a pou « ${label.ht} ». Ekri sa ki te mache ak pwochen etap la.`,
+      ),
+    };
+    return [first, ...PLAN_BODY[cat], last].map((item, index) => ({
+      id: `m_${Date.now().toString(36)}_${index}_${Math.random().toString(36).slice(2, 6)}`,
+      title: item.title,
+      task: item.task,
+      duration,
+      points: 10,
+      status: "todo",
+      doneAt: null,
+    }));
+  },
+
+  /* Version plus simple d'une mission (bouton « trop difficile »). */
+  async generateMission(item, easier) {
+    return easier ? { duration: 5, simplified: true } : { duration: item.duration, simplified: false };
+  },
+
+  getEncouragement(style, kind) {
+    const group = ENCOURAGE[kind] || ENCOURAGE.done;
+    return group[style] || group.balanced;
+  },
+
+  /* Réponse du mentor dans l'onglet Mentor (règles simples, sans vraie IA). */
+  async chatReply(text, ctx) {
+    const value = norm(text);
+    let body;
+    if (/decourag|dekouraj|fatig|triste|stress|abattu|bouke|pa gen kouraj/.test(value)) body = CHAT.discouraged;
+    else if (/dorm|sommeil|insomn|domi|somey/.test(value)) body = CHAT.sleep;
+    else if (/mission|misyon/.test(value)) {
+      return this._withOpener(
+        ctx.mission ? { fr: CHAT.mission.fr.replace("{title}", ctx.mission.title).replace("{n}", ctx.mission.minutes), ht: CHAT.mission.ht.replace("{title}", ctx.mission.title).replace("{n}", ctx.mission.minutes) } : CHAT.noMission,
+        ctx.style,
+      );
+    } else if (/\bplan\b/.test(value)) body = CHAT.plan;
+    else if (/temps|\btan\b|presse|okipe|occup/.test(value)) body = CHAT.time;
+    else body = CHAT.fallback;
+    return this._withOpener(body, ctx.style);
+  },
+
+  _withOpener(body, style) {
+    const opener = OPENERS[style] || OPENERS.balanced;
+    return { fr: `${opener.fr} ${body.fr}`.trim(), ht: `${opener.ht} ${body.ht}`.trim() };
+  },
+};
+
+TRANSLATIONS.fr.app = resolveLang(APP_TEXT, "fr");
+TRANSLATIONS.ht.app = resolveLang(APP_TEXT, "ht");
+TRANSLATIONS.fr.cta.button = "Lancer la démo";
+TRANSLATIONS.ht.cta.button = "Lanse demo a";
+
+
+/* =========================================================
+   MENTOR AI : démo MVP (parcours 1 à 7)
+   Partie 2 : état, écrans, actions
+   ========================================================= */
+const APP_KEY = "mentor-ai-app-v1";
+const TABS = ["today", "plan", "mentor", "progress", "settings"];
+const ONBOARDING = ["welcome", "quiz", "goal", "sub", "guide", "planReview"];
+const CAT_ICON = { study: "🎓", work: "💼", business: "🚀", money: "💰", growth: "🧠", life: "🏃" };
+const STYLES = ["coach", "friend", "teacher", "advisor", "balanced"];
+const SHARE_KEYS = ["age", "studies", "skills", "situation", "difficulty", "device"];
+
+const QUIZ = [
+  { key: "level", group: "studies", multi: false, values: ["fundamental", "secondary", "university", "vocational", "none"] },
+  { key: "field", group: "studies", multi: false, values: ["tech", "business", "health", "education", "agri", "arts", "unsure"] },
+  { key: "skills", group: "skills", multi: true, values: ["speak", "digital", "sell", "create", "help", "build", "craft"] },
+  { key: "situation", group: "situation", multi: false, values: ["study", "work", "both", "neither"] },
+  { key: "time", group: "situation", multi: false, values: ["10", "20", "30", "45"] },
+  { key: "difficulty", group: "difficulty", multi: false, values: ["start", "money", "time", "discipline", "confidence", "orientation"] },
+  { key: "device", group: "device", multi: false, values: ["phone-data", "phone-wifi", "phone-pc"] },
+];
+const GROUP_OF = Object.fromEntries(QUIZ.map((item) => [item.key, item.group]));
+
+const BADGES = [
+  { id: "first", icon: "🌱" },
+  { id: "streak3", icon: "🔥" },
+  { id: "five", icon: "⭐" },
+  { id: "goal", icon: "🏆" },
+];
+
+const ICONS = {
+  today: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>',
+  plan: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg>',
+  mentor: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20.5l1.2-4.4A8 8 0 1 1 21 12z"/></svg>',
+  progress: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg>',
+  settings: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>',
+};
+
+/* ---------- Petits outils ---------- */
+const esc = (value) =>
+  String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const T = (path, params) => t("app." + path, params);
+const TL = (path) => list("app." + path);
+const loc = (value) => (value && typeof value === "object" ? (value[state.lang] ?? value.fr) : value) ?? "";
+const uid = (prefix) => `${prefix}_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;
+const pad = (n) => String(n).padStart(2, "0");
+const todayStr = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+};
+const dayNum = (s) => {
+  const [y, m, d] = s.split("-").map(Number);
+  return Math.round(Date.UTC(y, m - 1, d) / 86400000);
+};
+const addDays = (s, n) => {
+  const dt = new Date((dayNum(s) + n) * 86400000);
+  return `${dt.getUTCFullYear()}-${pad(dt.getUTCMonth() + 1)}-${pad(dt.getUTCDate())}`;
+};
+const setPath = (obj, path, value) => {
+  const keys = path.split(".");
+  const last = keys.pop();
+  const target = keys.reduce((node, key) => node?.[key], obj);
+  if (target) target[last] = value;
+};
+const dayWord = (n) => (n === 1 ? T("common.dayOne") : T("common.dayMany"));
+
+/* ---------- État de l'application ---------- */
+function defaults() {
+  return {
+    v: 1,
+    screen: "welcome",
+    form: { firstName: "", age: "" },
+    user: null,
+    share: Object.fromEntries(SHARE_KEYS.map((key) => [key, true])),
+    answers: {},
+    ctx: {},
+    quizStep: 0,
+    guide: null,
+    goals: [],
+    activeGoalId: null,
+    draftGoalId: null,
+    draft: { category: null },
+    points: 0,
+    badges: [],
+    activeDays: [],
+    restDate: null,
+    easier: null,
+    reminders: [
+      { id: "r_morning", userId: null, type: "morning", date: null, time: "07:30", repeat: "daily", status: "off" },
+      { id: "r_afternoon", userId: null, type: "afternoon", date: null, time: "14:00", repeat: "daily", status: "off" },
+      { id: "r_evening", userId: null, type: "evening", date: null, time: "20:00", repeat: "daily", status: "off" },
+    ],
+    preferences: { language: state.lang, mentorStyle: "balanced", notifications: false, mic: false, memory: true },
+    chat: [],
+  };
+}
+
+function loadApp() {
+  const base = defaults();
+  try {
+    const raw = JSON.parse(store.get(APP_KEY) || "null");
+    if (!raw || raw.v !== 1) return base;
+    const merged = Object.assign(base, raw);
+    merged.share = { ...defaults().share, ...(raw.share || {}) };
+    merged.preferences = { ...defaults().preferences, ...(raw.preferences || {}) };
+    merged.form = { ...defaults().form, ...(raw.form || {}) };
+    merged.answers = raw.answers || {};
+    merged.goals = Array.isArray(raw.goals) ? raw.goals : [];
+    merged.reminders = Array.isArray(raw.reminders) && raw.reminders.length ? raw.reminders : defaults().reminders;
+    return merged;
+  } catch (error) {
+    return base;
+  }
+}
+
+let A = loadApp();
+let appOpen = false;
+let toastTimer = null;
+
+/* Sauvegarde : on ne garde que ce que l'utilisateur accepte de partager et de conserver. */
+function persist() {
+  const out = JSON.parse(JSON.stringify(A));
+  ["result", "edit", "confirmReset", "_focus", "_focusTitle", "_scrollChat"].forEach((key) => delete out[key]);
+  if (!A.preferences.memory) {
+    out.answers = {};
+    out.chat = [];
+    out.guide = null;
+    if (out.user) out.user.age = null;
+    out.form.age = "";
+  } else {
+    Object.keys(out.answers).forEach((key) => {
+      if (!A.share[GROUP_OF[key]]) delete out.answers[key];
+    });
+    if (!A.share.age) {
+      if (out.user) out.user.age = null;
+      out.form.age = "";
+    }
+  }
+  store.set(APP_KEY, JSON.stringify(out));
+}
+
+const goalById = (id) => A.goals.find((goal) => goal.id === id);
+const activeGoal = () => goalById(A.activeGoalId);
+const draftGoal = () => goalById(A.draftGoalId);
+const currentItem = (goal) => goal && goal.plan.find((item) => item.status !== "done");
+const doneItems = () => A.goals.flatMap((goal) => goal.plan.filter((item) => item.status === "done"));
+
+function goalLabel(goal) {
+  const sub = (SUBGOALS[goal.catId] || []).find((item) => item.id === goal.subId);
+  return sub ? loc(sub.label) : goal.goal;
+}
+
+function planCtx() {
+  const time = Number(A.answers.time) || 20;
+  return { time, help: A.ctx.help };
+}
+
+function calcStreak() {
+  const days = new Set(A.activeDays.map(dayNum));
+  let cursor = dayNum(todayStr());
+  if (!days.has(cursor)) cursor -= 1;
+  let count = 0;
+  while (days.has(cursor)) {
+    count += 1;
+    cursor -= 1;
+  }
+  return count;
+}
+
+function optionLabel(key, value) {
+  const quiz = QUIZ.find((item) => item.key === key);
+  if (!quiz) return String(value);
+  const labels = TL(`quiz.${key}.options`);
+  const one = (v) => labels[quiz.values.indexOf(v)] ?? v;
+  return Array.isArray(value) ? value.map(one).join(", ") : one(value);
+}
+
+function memoryItems() {
+  if (!A.preferences.memory) return [];
+  const items = [];
+  if (A.share.age && A.user?.age) items.push({ key: "age", value: `${A.user.age} ${A.user.age > 1 ? T("common.years") : T("common.year")}` });
+  QUIZ.forEach((quiz) => {
+    const value = A.answers[quiz.key];
+    const has = Array.isArray(value) ? value.length : value;
+    if (has && A.share[quiz.group]) items.push({ key: quiz.key, value: optionLabel(quiz.key, value) });
+  });
+  return items;
+}
+
+function fmtMinutes(total) {
+  const h = Math.floor(total / 60);
+  const m = total % 60;
+  return h ? T("progress.hm", { h, m: pad(m) }) : T("progress.m", { m });
+}
+
+function toast(message) {
+  const node = $("#appToast");
+  if (!node) return;
+  node.textContent = message;
+  node.classList.add("is-visible");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => node.classList.remove("is-visible"), 2800);
+}
+
+/* ---------- Navigation et rendu ---------- */
+function go(screen) {
+  A.screen = screen;
+  A._focusTitle = true;
+  persist();
+  renderApp();
+  window.scrollTo(0, 0);
+}
+
+function rerender() {
+  persist();
+  renderApp();
+}
+
+function navHTML() {
+  return `
+    <nav class="tabbar" aria-label="${esc(T("nav.label"))}">
+      <div class="tabbar-inner">
+        ${TABS.map(
+          (id) =>
+            `<button type="button" class="tab" data-action="tab" data-value="${id}" ${A.screen === id ? 'aria-current="page"' : ""}>${ICONS[id]}<span>${T("nav." + id)}</span></button>`,
+        ).join("")}
+      </div>
+    </nav>`;
+}
+
+function renderApp() {
+  const inTabs = TABS.includes(A.screen);
+  const view = VIEWS[A.screen] ? VIEWS[A.screen]() : "";
+  $("#main").innerHTML = `
+    <div class="offline-note" id="offlineNote" role="status">${t("offline")}</div>
+    <div class="app-wrap ${inTabs ? "" : "no-nav"}">${view}</div>
+    ${inTabs ? navHTML() : ""}`;
+  handleConnectivity();
+  if (A._focusTitle) {
+    $(".app-title")?.focus({ preventScroll: true });
+  } else if (A._focus) {
+    document.querySelector(`[data-focus="${A._focus}"]`)?.focus({ preventScroll: true });
+  }
+  A._focus = null;
+  A._focusTitle = false;
+  if (A._scrollChat) {
+    window.scrollTo(0, document.body.scrollHeight);
+    A._scrollChat = false;
+  }
+}
+
+function enterApp() {
+  const hasPlan = A.goals.some((goal) => goal.validated);
+  if (hasPlan) A.screen = "today";
+  else if (!A.user) A.screen = "welcome";
+  else if (!ONBOARDING.includes(A.screen) || A.screen === "welcome") A.screen = "quiz";
+  if (A.screen === "planReview" && !draftGoal()) A.screen = "goal";
+  if (A.screen === "guide" && !A.guide) A.screen = "goal";
+  if (A.screen === "sub" && !A.draft.category) A.screen = "goal";
+  A.edit = null;
+  A.result = null;
+  A.confirmReset = false;
+  A._focusTitle = false;
+}
+
+function wantApp() {
+  return location.hash === "#app" || (appOpen && location.hash === "#main");
+}
+
+function renderCurrent() {
+  const was = appOpen;
+  appOpen = wantApp();
+  document.body.classList.toggle("in-app", appOpen);
+  if (appOpen) {
+    if (!was) {
+      enterApp();
+      window.scrollTo(0, 0);
+    }
+    renderApp();
+  } else {
+    renderMain();
+  }
+  handleConnectivity();
+}
+
+function syncLang(lang) {
+  A.preferences.language = lang;
+  if (A.user) A.user.language = lang;
+  persist();
+}
+
+/* ---------- Écrans ---------- */
+function vWelcome() {
+  const f = A.form;
+  return `
+    <h1 class="app-title" tabindex="-1">${T("welcome.title")}</h1>
+    <p class="app-sub">${T("welcome.sub")}</p>
+    <div class="app-stack">
+      <div class="field">
+        <label for="fName">${T("welcome.firstName")}</label>
+        <input id="fName" type="text" autocomplete="given-name" maxlength="40" value="${esc(f.firstName)}" data-bind="form.firstName" data-enter="signup" data-focus="fName" />
+      </div>
+      <div class="field">
+        <label for="fAge">${T("welcome.age")}</label>
+        <input id="fAge" type="number" inputmode="numeric" min="10" max="99" value="${esc(f.age)}" data-bind="form.age" data-enter="signup" data-focus="fAge" />
+      </div>
+      <div class="field">
+        <label for="fLang">${T("welcome.language")}</label>
+        <select id="fLang" data-change="lang" data-focus="fLang">
+          <option value="fr" ${state.lang === "fr" ? "selected" : ""}>${T("welcome.langFr")}</option>
+          <option value="ht" ${state.lang === "ht" ? "selected" : ""}>${T("welcome.langHt")}</option>
+        </select>
+      </div>
+      <fieldset class="share">
+        <legend>${T("welcome.shareTitle")}</legend>
+        ${shareChecks("")}
+      </fieldset>
+      <p class="trust-note">${T("welcome.trust")}</p>
+      <p class="field-error" id="formError" role="alert"></p>
+      <button class="button button-primary button-block" type="button" data-action="signup">${T("welcome.start")}</button>
+    </div>`;
+}
+
+function shareChecks(change) {
+  return SHARE_KEYS.map(
+    (key) => `
+      <label class="check-row">
+        <input type="checkbox" data-bind="share.${key}" ${change ? `data-change="${change}"` : ""} data-focus="share-${key}" ${A.share[key] ? "checked" : ""} />
+        <span>${T("welcome.share." + key)}</span>
+      </label>`,
+  ).join("");
+}
+
+function vQuiz() {
+  const quiz = QUIZ[A.quizStep];
+  const labels = TL(`quiz.${quiz.key}.options`);
+  const current = A.answers[quiz.key];
+  const selected = (value) => (quiz.multi ? Array.isArray(current) && current.includes(value) : current === value);
+  const hasAnswer = quiz.multi ? Array.isArray(current) && current.length > 0 : Boolean(current);
+  const pct = Math.round(((A.quizStep + 1) / QUIZ.length) * 100);
+  return `
+    <div class="quiz-meta">
+      <span>${T("quiz.progress", { n: A.quizStep + 1, total: QUIZ.length })}</span>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="${esc(T("quiz.progress", { n: A.quizStep + 1, total: QUIZ.length }))}"><span style="width:${pct}%"></span></div>
+    </div>
+    <h1 class="app-title" id="qTitle" tabindex="-1">${T(`quiz.${quiz.key}.q`)}</h1>
+    ${quiz.multi ? `<p class="app-sub">${T("quiz.hintMulti")}</p>` : '<p class="app-sub"></p>'}
+    <div class="opt-list" role="group" aria-labelledby="qTitle">
+      ${quiz.values
+        .map(
+          (value, index) => `
+        <button type="button" class="opt ${quiz.multi ? "multi" : ""}" aria-pressed="${selected(value)}" data-action="pick" data-key="${quiz.key}" data-value="${value}" data-focus="opt-${value}">
+          <span class="opt-mark" aria-hidden="true"></span><span>${esc(labels[index])}</span>
+        </button>`,
+        )
+        .join("")}
+    </div>
+    <div class="app-row between" style="margin-top:1.2rem">
+      <button type="button" class="button button-ghost" data-action="quizBack">${T("common.back")}</button>
+      <button type="button" class="button button-ghost" data-action="quizSkip">${T("common.skip")}</button>
+      <button type="button" class="button button-primary" data-action="quizNext" ${hasAnswer ? "" : "disabled"}>${T("common.next")}</button>
+    </div>`;
+}
+
+function vGoal() {
+  return `
+    <h1 class="app-title" tabindex="-1">${T("goal.title")}</h1>
+    <p class="app-sub">${T("goal.sub")}</p>
+    <div class="cat-grid">
+      ${MentorEngine.categories
+        .map(
+          (cat) => `
+        <button type="button" class="cat-card" data-action="pickCat" data-value="${cat}">
+          <span class="cat-icon" aria-hidden="true">${CAT_ICON[cat]}</span><span>${T("goal.cats." + cat)}</span>
+        </button>`,
+        )
+        .join("")}
+    </div>
+    <button type="button" class="unsure-card" data-action="unsure">
+      <span class="cat-icon" aria-hidden="true">🧭</span>
+      <span>${T("goal.unsure")}<small>${T("goal.unsureHint")}</small></span>
+    </button>
+    ${A.goals.some((goal) => goal.validated) ? `<p style="margin-top:1rem"><button type="button" class="button button-ghost" data-action="tab" data-value="today">${T("common.back")}</button></p>` : ""}`;
+}
+
+function vSub() {
+  const cat = A.draft.category;
+  return `
+    <h1 class="app-title" tabindex="-1">${T("goal.subTitle", { cat: T("goal.cats." + cat) })}</h1>
+    <p class="app-sub"></p>
+    <div class="opt-list">
+      ${MentorEngine.subGoals(cat)
+        .map(
+          (sub) => `<button type="button" class="opt plain" data-action="pickSub" data-value="${sub.id}"><span class="opt-mark" aria-hidden="true"></span><span>${esc(loc(sub.label))}</span></button>`,
+        )
+        .join("")}
+      <button type="button" class="opt plain" data-action="unsureFromCat"><span class="opt-mark" aria-hidden="true"></span><span>🧭 ${T("goal.unsure")}</span></button>
+    </div>
+    <p style="margin-top:1.2rem"><button type="button" class="button button-ghost" data-action="goalBack">${T("common.back")}</button></p>`;
+}
+
+function guideAnswerLabel(entry) {
+  if (entry.text) return esc(entry.text);
+  if (entry.qid === "goal") {
+    const sub = MentorEngine.subGoals(A.guide.answers.domain).find((item) => item.id === entry.value);
+    return esc(sub ? loc(sub.label) : entry.value);
+  }
+  const values = entry.qid === "domain" ? MentorEngine.categories : GUIDE_VALUES[entry.qid];
+  return esc(TL(`guide.opts.${entry.qid}`)[values.indexOf(entry.value)] ?? entry.value);
+}
+
+const GUIDE_VALUES = { stage: ["none", "stopped", "nomethod"], help: ["plan", "easy", "reminder", "options"] };
+
+function vGuide() {
+  const g = A.guide;
+  const next = g.next;
+  const log = g.log
+    .map(
+      (entry) => `
+      <p class="bubble mentor">${T("guide.q." + entry.qid)}</p>
+      <p class="bubble me">${guideAnswerLabel(entry)}</p>`,
+    )
+    .join("");
+
+  if (!next) {
+    const cat = g.answers.domain;
+    const sub = MentorEngine.subGoals(cat).find((item) => item.id === g.answers.goal);
+    const stage = TL("guide.opts.stage")[GUIDE_VALUES.stage.indexOf(g.answers.stage)] || "";
+    const preview = g.preview;
+    return `
+      <h1 class="app-title" tabindex="-1">${T("guide.summaryTitle")}</h1>
+      <div class="flow">
+        <div class="flow-item"><small>${T("guide.rowSituation")}</small><span>${T("guide.situation", { cat: T("goal.cats." + cat), stage: esc(stage) })}</span></div>
+        <div class="flow-item"><small>${T("guide.rowOptions")}</small><span>${MentorEngine.subGoals(cat).map((item) => esc(loc(item.label))).join(" · ")}</span></div>
+        <div class="flow-item"><small>${T("guide.rowGoal")}</small><strong>${esc(sub ? loc(sub.label) : "")}</strong></div>
+        <div class="flow-item"><small>${T("guide.rowStep")}</small><span>${esc(preview ? loc(preview.title) : "")}</span></div>
+        <div class="flow-item"><small>${T("guide.rowMission")}</small><span>${esc(preview ? loc(preview.task) : "")}</span></div>
+      </div>
+      <div class="app-stack">
+        <button type="button" class="button button-primary button-block" data-action="guideConfirm">${T("guide.confirm")}</button>
+        <button type="button" class="button button-ghost button-block" data-action="guideChange">${T("guide.change")}</button>
+      </div>`;
+  }
+
+  const labels =
+    next.id === "goal"
+      ? MentorEngine.subGoals(g.answers.domain).map((item) => loc(item.label))
+      : TL(`guide.opts.${next.id}`);
+  return `
+    <h1 class="app-title" tabindex="-1">${T("guide.title")}</h1>
+    <p class="app-sub">${T("guide.sub")}</p>
+    <div class="chat" aria-live="polite">
+      ${log}
+      <p class="bubble mentor">${T("guide.q." + next.id)}</p>
+    </div>
+    <div class="opt-list">
+      ${next.values
+        .map(
+          (value, index) => `<button type="button" class="opt plain" data-action="guideAnswer" data-qid="${next.id}" data-value="${value}" data-focus="g-${value}"><span class="opt-mark" aria-hidden="true"></span><span>${esc(labels[index])}</span></button>`,
+        )
+        .join("")}
+    </div>
+    ${
+      next.id === "domain"
+        ? `<div class="field" style="margin-top:1rem">
+            <label for="guideFree">${T("guide.free")}</label>
+            <div class="composer" style="grid-template-columns:1fr auto">
+              <input id="guideFree" class="chat-input" type="text" maxlength="120" placeholder="${esc(T("guide.freePlaceholder"))}" value="${esc(g.free || "")}" data-bind="guide.free" data-enter="guideFree" data-focus="guideFree" />
+              <button type="button" class="button button-secondary" data-action="guideFree">${T("common.send")}</button>
+            </div>
+            <p class="field-error" id="guideError" role="alert"></p>
+          </div>`
+        : ""
+    }
+    <p style="margin-top:1rem"><button type="button" class="button button-ghost" data-action="guideBack">${T("common.back")}</button></p>`;
+}
+
+function itemRow(item, index, total, validated) {
+  if (A.edit && A.edit.id === item.id) return editForm();
+  const status = item.status === "done";
+  const current = validated && !status && currentItem(planGoal()) === item;
+  return `
+    <article class="day ${status ? "is-done" : ""} ${current ? "is-current" : ""}">
+      <span class="day-n" aria-hidden="true">${T("plan.dayShort", { n: index + 1 })}</span>
+      <div>
+        <h3>${esc(loc(item.title))}</h3>
+        <p>${esc(loc(item.task))}</p>
+        <div class="app-row" style="margin-top:.5rem">
+          <span class="pill">${item.duration} ${T("common.min")}</span>
+          ${status ? `<span class="pill">✅ ${T("plan.done")}</span>` : current ? `<span class="pill">${T("plan.current")}</span>` : ""}
+        </div>
+      </div>
+      <div class="day-actions">
+        <button type="button" class="button button-ghost button-small" data-action="editItem" data-id="${item.id}">${T("common.edit")}</button>
+        <button type="button" class="button button-ghost button-small" data-action="moveUp" data-id="${item.id}" aria-label="${esc(T("common.up"))}" ${index === 0 ? "disabled" : ""}>↑</button>
+        <button type="button" class="button button-ghost button-small" data-action="moveDown" data-id="${item.id}" aria-label="${esc(T("common.down"))}" ${index === total - 1 ? "disabled" : ""}>↓</button>
+        <button type="button" class="button button-ghost button-small" data-action="delItem" data-id="${item.id}">${T("common.remove")}</button>
+      </div>
+    </article>`;
+}
+
+function editForm() {
+  return `
+    <article class="day edit">
+      <div class="field">
+        <label for="eTitle">${T("plan.titleLabel")}</label>
+        <input id="eTitle" type="text" maxlength="80" value="${esc(A.edit.title)}" data-bind="edit.title" data-focus="eTitle" />
+      </div>
+      <div class="field">
+        <label for="eTask">${T("plan.taskLabel")}</label>
+        <textarea id="eTask" maxlength="300" data-bind="edit.task">${esc(A.edit.task)}</textarea>
+      </div>
+      <p class="field-error" id="editError" role="alert"></p>
+      <div class="app-row">
+        <button type="button" class="button button-primary button-small" data-action="saveItem">${T("common.save")}</button>
+        <button type="button" class="button button-ghost button-small" data-action="cancelEdit">${T("common.cancel")}</button>
+      </div>
+    </article>`;
+}
+
+function planGoal() {
+  return A.screen === "planReview" ? draftGoal() : activeGoal();
+}
+
+function vPlan() {
+  const onboarding = A.screen === "planReview";
+  const goal = planGoal();
+  if (!goal) {
+    return `
+      <h1 class="app-title" tabindex="-1">${T("plan.title")}</h1>
+      <p class="app-sub">${T("plan.noGoal")}</p>
+      <button type="button" class="button button-primary button-block" data-action="newGoal">${T("plan.chooseGoal")}</button>`;
+  }
+  const total = goal.plan.length;
+  const rows = goal.plan.map((item, index) => itemRow(item, index, total, !onboarding)).join("");
+  const adding = A.edit && A.edit.id === "new" ? editForm() : "";
+  return `
+    <h1 class="app-title" tabindex="-1">${T("plan.title")}</h1>
+    <p class="app-sub">${onboarding ? T("plan.sub") : ""}<strong>${T("plan.goalLabel", { goal: esc(goalLabel(goal)) })}</strong></p>
+    <div class="app-stack">
+      ${rows || `<p class="muted">${T("plan.empty")}</p>`}
+      ${adding}
+      ${A.edit ? "" : `<button type="button" class="button button-secondary button-block" data-action="addItem">${T("plan.add")}</button>`}
+      <p class="field-error" id="planError" role="alert"></p>
+      ${
+        onboarding
+          ? `<button type="button" class="button button-primary button-block" data-action="validatePlan">${T("plan.validate")}</button>
+             <button type="button" class="button button-ghost button-block" data-action="goalBack2">${T("common.back")}</button>`
+          : ""
+      }
+    </div>`;
+}
+
+function vToday() {
+  const goal = activeGoal();
+  const name = esc(A.user?.firstName || "");
+  const streak = calcStreak();
+  const head = `
+    <p class="app-hello">${T("today.greeting", { name })}</p>
+    <h1 class="app-title" tabindex="-1">${T("today.title")}</h1>
+    <div class="app-row" style="margin-bottom:1rem">
+      <span class="pill">🔥 ${T("today.streak", { n: streak, d: dayWord(streak) })}</span>
+      <span class="pill">⭐ ${A.points} ${T("common.points")}</span>
+    </div>`;
+  const tip =
+    A.ctx.help === "reminder" && !A.preferences.notifications
+      ? `<p class="trust-note" style="margin-top:1rem">${T("today.reminderTip")}</p>`
+      : "";
+
+  if (A.result) {
+    const r = A.result;
+    return `${head}
+      <section class="mission-big result" aria-live="polite">
+        <p class="big-points">${T("today.earned", { n: r.earned })}</p>
+        <h2>${T("today.done")}</h2>
+        ${r.bonus ? `<p>${T("today.bonus", { n: r.bonus })}</p>` : ""}
+        ${r.goalDone ? `<p><strong>🏆 ${T("today.goalDone")}</strong> ${T("today.goalDoneBody")}</p>` : ""}
+        ${r.newBadges.map((id) => `<p>${BADGES.find((b) => b.id === id).icon} ${T("today.newBadge", { name: T("badges." + id + ".name") })}</p>`).join("")}
+        <p>${esc(loc(r.message))}</p>
+        ${r.next ? `<p class="muted">${T("today.nextUp", { title: esc(loc(r.next)) })}</p>` : ""}
+        <div class="app-stack">
+          ${
+            r.goalDone || !r.next
+              ? `<button type="button" class="button button-primary button-block" data-action="newGoal">${T("today.newGoal")}</button>`
+              : `<button type="button" class="button button-primary button-block" data-action="nextMission">${T("today.next")}</button>
+                 <button type="button" class="button button-ghost button-block" data-action="tomorrow">${T("today.tomorrow")}</button>`
+          }
+        </div>
+      </section>${tip}`;
+  }
+
+  if (!goal) {
+    return `${head}
+      <section class="mission-big"><p>${T("today.noGoal")}</p>
+      <button type="button" class="button button-primary button-block" data-action="newGoal">${T("today.chooseGoal")}</button></section>`;
+  }
+
+  if (goal.status === "done") {
+    return `${head}
+      <section class="mission-big result"><h2>🏆 ${T("today.goalDone")}</h2><p>${T("today.goalDoneBody")}</p>
+      <button type="button" class="button button-primary button-block" data-action="newGoal">${T("today.newGoal")}</button></section>`;
+  }
+
+  if (A.restDate === todayStr()) {
+    return `${head}
+      <section class="mission-big"><h2>${T("today.restTitle")}</h2><p>${T("today.restBody")}</p>
+      <button type="button" class="button button-secondary button-block" data-action="extra">${T("today.extra")}</button></section>${tip}`;
+  }
+
+  const item = currentItem(goal);
+  if (!item) {
+    return `${head}
+      <section class="mission-big"><p>${T("today.planDone")}</p>
+      <div class="app-stack">
+        <button type="button" class="button button-primary button-block" data-action="tab" data-value="plan">${T("today.addTask")}</button>
+        <button type="button" class="button button-ghost button-block" data-action="newGoal">${T("today.newGoal")}</button>
+      </div></section>`;
+  }
+
+  const easier = A.easier === item.id;
+  const title = loc(item.title);
+  const minutes = easier ? 5 : item.duration;
+  const n = goal.plan.indexOf(item) + 1;
+  return `${head}
+    <section class="mission-big">
+      <div class="app-row">
+        <span class="pill">${T("today.day", { n, total: goal.plan.length })}</span>
+        <span class="pill">${minutes} ${T("common.min")}</span>
+        <span class="pill">+${item.points || 10} ${T("common.points")}</span>
+      </div>
+      <h2>${esc(title)}</h2>
+      ${easier ? `<p class="easier-note">${T("today.easierTag")}</p>` : ""}
+      <p>${easier ? T("today.easierText", { title: esc(title) }) : esc(loc(item.task))}</p>
+      <div class="app-stack">
+        <button type="button" class="button button-primary button-block" data-action="done">${T("today.done")}</button>
+        ${
+          easier
+            ? `<button type="button" class="button button-ghost button-block" data-action="full">${T("today.full")}</button>`
+            : `<button type="button" class="button button-ghost button-block" data-action="hard">${T("today.hard")}</button>`
+        }
+      </div>
+    </section>${tip}`;
+}
+
+function vMentor() {
+  const name = esc(A.user?.firstName || "");
+  const bubbles = A.chat.map((m) => `<p class="bubble ${m.role === "me" ? "me" : "mentor"}">${esc(m.text)}</p>`).join("");
+  const chips = TL("mentor.chips");
+  return `
+    <h1 class="app-title" tabindex="-1">${T("mentor.title")}</h1>
+    <div class="chat" aria-live="polite">
+      <p class="bubble mentor">${T("mentor.greeting", { name })}</p>
+      ${bubbles}
+    </div>
+    <div class="quick-replies">
+      ${chips.map((chip, i) => `<button type="button" class="button button-secondary button-small" data-action="chip" data-i="${i}">${esc(chip)}</button>`).join("")}
+    </div>
+    <div class="composer">
+      <input id="chatInput" class="chat-input" type="text" maxlength="300" aria-label="${esc(T("mentor.placeholder"))}" placeholder="${esc(T("mentor.placeholder"))}" data-enter="send" data-focus="chatInput" />
+      <button type="button" class="button button-secondary" data-action="mic" aria-label="${esc(T("mentor.mic"))}">🎤</button>
+      <button type="button" class="button button-primary" data-action="send">${T("mentor.send")}</button>
+    </div>`;
+}
+
+function vProgress() {
+  const done = doneItems();
+  const minutes = done.reduce((sum, item) => sum + (item.minutesDone ?? item.duration ?? 0), 0);
+  const goal = activeGoal();
+  const next = currentItem(goal);
+  const goalsHTML = A.goals.filter((g) => g.validated).length
+    ? A.goals
+        .filter((g) => g.validated)
+        .map((g) => {
+          const d = g.plan.filter((item) => item.status === "done").length;
+          const pct = g.plan.length ? Math.round((d / g.plan.length) * 100) : 0;
+          return `<div class="goal-line">
+            <div class="app-row between"><strong>${esc(goalLabel(g))}</strong><span>${pct}%</span></div>
+            <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="${esc(goalLabel(g))}"><span style="width:${pct}%"></span></div>
+          </div>`;
+        })
+        .join("")
+    : `<p class="muted">${T("progress.noGoals")}</p>`;
+  return `
+    <h1 class="app-title" tabindex="-1">${T("progress.title")}</h1>
+    <div class="app-stack">
+      <div class="stat-grid">
+        <div class="stat"><strong>${A.points}</strong><span>${T("progress.points")}</span></div>
+        <div class="stat"><strong>${calcStreak()}</strong><span>${T("progress.streak")} (${T("common.dayMany")})</span></div>
+        <div class="stat"><strong>${done.length}</strong><span>${T("progress.missions")}</span></div>
+        <div class="stat"><strong>${A.activeDays.length}</strong><span>${T("progress.active")}</span></div>
+        <div class="stat"><strong>${fmtMinutes(minutes)}</strong><span>${T("progress.time")}</span></div>
+        <div class="stat"><strong style="font-size:1.05rem">${esc(next ? loc(next.title) : T("progress.noNext"))}</strong><span>${T("progress.next")}</span></div>
+      </div>
+      <section class="panel"><h2>${T("progress.goals")}</h2>${goalsHTML}</section>
+      <section class="panel"><h2>${T("progress.badges")}</h2>
+        <p class="muted">${T("progress.rules")}</p>
+        <div class="badge-list">
+          ${BADGES.map((b) => {
+            const has = A.badges.includes(b.id);
+            return `<div class="badge ${has ? "" : "locked"}"><span class="badge-icon" aria-hidden="true">${b.icon}</span><div><strong>${T("badges." + b.id + ".name")}</strong><small>${has ? T("badges." + b.id + ".desc") : T("progress.locked")}</small></div></div>`;
+          }).join("")}
+        </div>
+      </section>
+    </div>`;
+}
+
+function vSettings() {
+  const mentors = list("mentors.items");
+  const mem = memoryItems();
+  const p = A.preferences;
+  return `
+    <h1 class="app-title" tabindex="-1">${T("settings.title")}</h1>
+    <div class="app-stack">
+      <section class="panel">
+        <h2>${T("settings.language")}</h2>
+        <div class="field">
+          <label class="sr-only" for="sLang">${T("settings.language")}</label>
+          <select id="sLang" data-change="lang" data-focus="sLang">
+            <option value="fr" ${state.lang === "fr" ? "selected" : ""}>${T("welcome.langFr")}</option>
+            <option value="ht" ${state.lang === "ht" ? "selected" : ""}>${T("welcome.langHt")}</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>${T("settings.mentorTitle")}</h2>
+        <div class="opt-list">
+          ${STYLES.map(
+            (id, i) => `<button type="button" class="opt" aria-pressed="${p.mentorStyle === id}" data-action="style" data-value="${id}" data-focus="style-${id}">
+              <span class="opt-mark" aria-hidden="true"></span>
+              <span><strong>${esc(mentors[i]?.title)}</strong><br /><span class="muted">${esc(mentors[i]?.quote)}</span></span>
+            </button>`,
+          ).join("")}
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>${T("settings.notifTitle")}</h2>
+        <label class="check-row"><input type="checkbox" ${p.notifications ? "checked" : ""} data-change="notif" data-focus="notif" /><span>${T("settings.notifOn")}</span></label>
+        ${
+          p.notifications
+            ? A.reminders
+                .map(
+                  (r) => `<div class="rem-row">
+                    <label class="check-row"><input type="checkbox" ${r.status === "on" ? "checked" : ""} data-change="rem" data-id="${r.id}" /><span>${T("settings.rem." + r.type)}</span></label>
+                    <div class="field"><label class="sr-only" for="t-${r.id}">${T("settings.rem." + r.type)}</label><input id="t-${r.id}" type="time" value="${esc(r.time)}" data-change="remTime" data-id="${r.id}" /></div>
+                  </div>`,
+                )
+                .join("")
+            : ""
+        }
+        <p class="muted">${T("settings.notifNote")}</p>
+      </section>
+
+      <section class="panel">
+        <h2>${T("settings.micTitle")}</h2>
+        <label class="check-row"><input type="checkbox" ${p.mic ? "checked" : ""} data-change="mic" data-focus="mic" /><span>${T("settings.micOn")}</span></label>
+        <p class="muted">${T("settings.micNote")}</p>
+      </section>
+
+      <section class="panel">
+        <h2>${T("settings.memTitle")}</h2>
+        <label class="check-row"><input type="checkbox" ${p.memory ? "checked" : ""} data-change="memToggle" data-focus="memToggle" /><span>${T("settings.memOn")}</span></label>
+        ${p.memory ? "" : `<p class="muted">${T("settings.memOffNote")}</p>`}
+        <fieldset class="share"><legend>${T("settings.memShare")}</legend>${shareChecks("shareChanged")}</fieldset>
+        <h3 style="margin:.4rem 0 0">${T("settings.memList")}</h3>
+        ${
+          mem.length
+            ? mem
+                .map(
+                  (m) => `<div class="mem-item"><span><small>${T("settings.memLabels." + m.key)}</small>${esc(m.value)}</span><button type="button" class="button button-ghost button-small" data-action="memDel" data-key="${m.key}">${T("common.remove")}</button></div>`,
+                )
+                .join("")
+            : `<p class="muted">${T("settings.memEmpty")}</p>`
+        }
+        ${mem.length ? `<button type="button" class="button button-ghost button-small" data-action="memAll">${T("settings.memDeleteAll")}</button>` : ""}
+      </section>
+
+      <section class="panel">
+        <h2>${T("settings.dataTitle")}</h2>
+        ${
+          A.confirmReset
+            ? `<p role="alert">${T("settings.resetConfirm")}</p>
+               <div class="app-row">
+                 <button type="button" class="button button-danger button-small" data-action="resetYes">${T("settings.resetYes")}</button>
+                 <button type="button" class="button button-ghost button-small" data-action="resetNo">${T("common.cancel")}</button>
+               </div>`
+            : `<button type="button" class="button button-ghost" data-action="reset">${T("settings.reset")}</button>`
+        }
+        <button type="button" class="button button-secondary" data-action="exit">${T("common.exit")}</button>
+      </section>
+    </div>`;
+}
+
+const VIEWS = {
+  welcome: vWelcome,
+  quiz: vQuiz,
+  goal: vGoal,
+  sub: vSub,
+  guide: vGuide,
+  planReview: vPlan,
+  plan: vPlan,
+  today: vToday,
+  mentor: vMentor,
+  progress: vProgress,
+  settings: vSettings,
+};
+
+/* ---------- Actions ---------- */
+async function makeGoal(cat, subId) {
+  A.goals = A.goals.filter((goal) => goal.validated);
+  const plan = await MentorEngine.generatePlan(cat, subId, planCtx());
+  const sub = MentorEngine.subGoals(cat).find((item) => item.id === subId) || MentorEngine.subGoals(cat)[0];
+  const goal = {
+    id: uid("g"),
+    userId: A.user?.id || null,
+    catId: cat,
+    subId: sub.id,
+    category: cat,
+    goal: loc(sub.label),
+    description: `${T("goal.cats." + cat)} : ${loc(sub.label)}`,
+    startDate: null,
+    deadline: null,
+    status: "active",
+    validated: false,
+    plan,
+  };
+  A.goals.push(goal);
+  A.draftGoalId = goal.id;
+  A.edit = null;
+  go("planReview");
+}
+
+function completeMission() {
+  const goal = activeGoal();
+  const item = currentItem(goal);
+  if (!item) return;
+  const today = todayStr();
+  const firstToday = !A.activeDays.includes(today);
+  item.status = "done";
+  item.doneAt = new Date().toISOString();
+  item.minutesDone = A.easier === item.id ? 5 : item.duration;
+  A.easier = null;
+  if (firstToday) A.activeDays.push(today);
+  const earned = item.points || 10;
+  const bonus = firstToday && calcStreak() >= 3 ? 5 : 0;
+  A.points += earned + bonus;
+  let goalDone = false;
+  if (goal.plan.every((entry) => entry.status === "done")) {
+    goal.status = "done";
+    A.points += 50;
+    goalDone = true;
+  }
+  const newBadges = [];
+  const unlock = (id) => {
+    if (!A.badges.includes(id)) {
+      A.badges.push(id);
+      newBadges.push(id);
+    }
+  };
+  if (doneItems().length >= 1) unlock("first");
+  if (calcStreak() >= 3) unlock("streak3");
+  if (doneItems().length >= 5) unlock("five");
+  if (goalDone) unlock("goal");
+  const next = currentItem(goal);
+  A.result = {
+    earned,
+    bonus,
+    goalDone,
+    newBadges,
+    message: MentorEngine.getEncouragement(A.preferences.mentorStyle, "done"),
+    next: next ? next.title : null,
+  };
+  A.restDate = null;
+  rerender();
+}
+
+function memoryDelete(key) {
+  if (key === "age") {
+    if (A.user) A.user.age = null;
+    A.form.age = "";
+  } else {
+    delete A.answers[key];
+  }
+}
+
+function resolveGuideNext() {
+  return MentorEngine.getNextQuestion(A.guide.answers).then((next) => {
+    A.guide.next = next;
+    if (!next) {
+      return MentorEngine.generatePlan(A.guide.answers.domain, A.guide.answers.goal, planCtx()).then((plan) => {
+        A.guide.preview = plan[0];
+      });
+    }
+    return null;
+  });
+}
+
+function afterGuide() {
+  const next = A.guide.next;
+  A._focus = next ? `g-${next.values[0]}` : null;
+  A._focusTitle = !next;
+  rerender();
+}
+
+async function startGuide(domain) {
+  A.guide = { answers: domain ? { domain } : {}, log: [], next: null, preview: null, free: "" };
+  if (domain) A.draft.category = domain;
+  await resolveGuideNext();
+  go("guide");
+}
+
+const ACTIONS = {
+  /* 1. Inscription */
+  signup() {
+    const name = String(A.form.firstName || "").trim();
+    const age = Number(A.form.age);
+    const error = $("#formError");
+    if (!name) {
+      error.textContent = T("welcome.errName");
+      $("#fName")?.focus();
+      return;
+    }
+    if (!Number.isInteger(age) || age < 10 || age > 99) {
+      error.textContent = T("welcome.errAge");
+      $("#fAge")?.focus();
+      return;
+    }
+    A.user = {
+      ...(A.user || { id: uid("u"), createdAt: new Date().toISOString() }),
+      firstName: name,
+      age,
+      language: state.lang,
+      profile: {},
+      preferences: {},
+    };
+    A.preferences.language = state.lang;
+    A.quizStep = 0;
+    go("quiz");
+  },
+
+  /* 2. Questionnaire */
+  pick(el) {
+    const quiz = QUIZ.find((item) => item.key === el.dataset.key);
+    const value = el.dataset.value;
+    if (quiz.multi) {
+      const list = Array.isArray(A.answers[quiz.key]) ? [...A.answers[quiz.key]] : [];
+      const at = list.indexOf(value);
+      if (at >= 0) list.splice(at, 1);
+      else if (list.length < 3) list.push(value);
+      A.answers[quiz.key] = list;
+    } else {
+      A.answers[quiz.key] = value;
+    }
+    rerender();
+  },
+  quizNext() {
+    if (A.quizStep >= QUIZ.length - 1) return go("goal");
+    A.quizStep += 1;
+    go("quiz");
+  },
+  quizSkip() {
+    delete A.answers[QUIZ[A.quizStep].key];
+    ACTIONS.quizNext();
+  },
+  quizBack() {
+    if (A.quizStep === 0) return go("welcome");
+    A.quizStep -= 1;
+    go("quiz");
+  },
+
+  /* 3. Objectifs */
+  pickCat(el) {
+    A.draft.category = el.dataset.value;
+    go("sub");
+  },
+  goalBack() {
+    go("goal");
+  },
+  goalBack2() {
+    go("goal");
+  },
+  pickSub(el) {
+    return makeGoal(A.draft.category, el.dataset.value);
+  },
+  unsure() {
+    return startGuide(null);
+  },
+  unsureFromCat() {
+    return startGuide(A.draft.category);
+  },
+  newGoal() {
+    A.result = null;
+    A.edit = null;
+    go("goal");
+  },
+
+  /* 4. « Je ne sais pas par où commencer » */
+  async guideAnswer(el) {
+    const qid = el.dataset.qid;
+    const value = el.dataset.value;
+    A.guide.log.push({ qid, value });
+    A.guide.answers[qid] = value;
+    if (qid === "help") A.ctx.help = value;
+    if (qid === "domain") A.draft.category = value;
+    await resolveGuideNext();
+    afterGuide();
+  },
+  async guideFree() {
+    const text = String(A.guide.free || "").trim();
+    const cat = MentorEngine.detectCategory(text);
+    const error = $("#guideError");
+    if (!text || !cat) {
+      if (error) error.textContent = T("guide.notUnderstood");
+      return;
+    }
+    A.guide.log.push({ qid: "domain", value: cat, text });
+    A.guide.answers.domain = cat;
+    A.guide.free = "";
+    A.draft.category = cat;
+    await resolveGuideNext();
+    afterGuide();
+  },
+  async guideBack() {
+    const g = A.guide;
+    const last = g.log.pop();
+    if (!last) return go("goal");
+    delete g.answers[last.qid];
+    await resolveGuideNext();
+    afterGuide();
+  },
+  async guideChange() {
+    const g = A.guide;
+    const last = g.log.pop();
+    if (last) delete g.answers[last.qid];
+    await resolveGuideNext();
+    afterGuide();
+  },
+  guideConfirm() {
+    const g = A.guide;
+    return makeGoal(g.answers.domain, g.answers.goal);
+  },
+
+  /* 5. Plan personnalisé */
+  addItem() {
+    A.edit = { id: "new", title: "", task: "" };
+    A._focus = "eTitle";
+    renderApp();
+  },
+  editItem(el) {
+    const item = planGoal()?.plan.find((entry) => entry.id === el.dataset.id);
+    if (!item) return;
+    A.edit = { id: item.id, title: loc(item.title), task: loc(item.task) };
+    A._focus = "eTitle";
+    renderApp();
+  },
+  cancelEdit() {
+    A.edit = null;
+    renderApp();
+  },
+  saveItem() {
+    const goal = planGoal();
+    const title = String(A.edit.title || "").trim();
+    const task = String(A.edit.task || "").trim();
+    if (!title) {
+      $("#editError").textContent = T("plan.errTitle");
+      $("#eTitle")?.focus();
+      return;
+    }
+    if (A.edit.id === "new") {
+      goal.plan.push({ id: uid("m"), title, task: task || title, duration: planCtx().time, points: 10, status: "todo", doneAt: null });
+      if (goal.status === "done") goal.status = "active";
+    } else {
+      const item = goal.plan.find((entry) => entry.id === A.edit.id);
+      if (item) {
+        item.title = title;
+        item.task = task || title;
+      }
+    }
+    A.edit = null;
+    rerender();
+    toast(T("toast.planSaved"));
+  },
+  moveUp(el) {
+    ACTIONS._move(el.dataset.id, -1);
+  },
+  moveDown(el) {
+    ACTIONS._move(el.dataset.id, 1);
+  },
+  _move(id, delta) {
+    const plan = planGoal().plan;
+    const i = plan.findIndex((item) => item.id === id);
+    const j = i + delta;
+    if (i < 0 || j < 0 || j >= plan.length) return;
+    [plan[i], plan[j]] = [plan[j], plan[i]];
+    rerender();
+  },
+  delItem(el) {
+    const goal = planGoal();
+    goal.plan = goal.plan.filter((item) => item.id !== el.dataset.id);
+    if (A.edit?.id === el.dataset.id) A.edit = null;
+    rerender();
+  },
+  validatePlan() {
+    const goal = draftGoal();
+    if (!goal || !goal.plan.length) {
+      $("#planError").textContent = T("plan.errEmpty");
+      return;
+    }
+    goal.validated = true;
+    goal.startDate = todayStr();
+    goal.deadline = addDays(todayStr(), goal.plan.length - 1);
+    A.activeGoalId = goal.id;
+    A.draftGoalId = null;
+    A.restDate = null;
+    A.result = null;
+    A.edit = null;
+    go("today");
+    toast(T("toast.planValidated"));
+  },
+
+  /* 6. Mission du jour */
+  done() {
+    completeMission();
+  },
+  async hard() {
+    const goal = activeGoal();
+    const item = currentItem(goal);
+    if (!item) return;
+    await MentorEngine.generateMission(item, true);
+    A.easier = item.id;
+    rerender();
+    toast(loc(MentorEngine.getEncouragement(A.preferences.mentorStyle, "hard")));
+  },
+  full() {
+    A.easier = null;
+    rerender();
+  },
+  nextMission() {
+    A.result = null;
+    go("today");
+  },
+  tomorrow() {
+    A.result = null;
+    A.restDate = todayStr();
+    go("today");
+  },
+  extra() {
+    A.restDate = null;
+    go("today");
+  },
+
+  /* Navigation par onglets */
+  tab(el) {
+    A.edit = null;
+    A.confirmReset = false;
+    if (el.dataset.value === "mentor") A._scrollChat = false;
+    go(el.dataset.value);
+  },
+
+  /* Mentor (chat) */
+  chip(el) {
+    return ACTIONS._say(TL("mentor.chips")[Number(el.dataset.i)]);
+  },
+  send() {
+    const input = $("#chatInput");
+    const text = String(input?.value || "").trim();
+    if (!text) return;
+    return ACTIONS._say(text);
+  },
+  async _say(text) {
+    const goal = activeGoal();
+    const item = currentItem(goal);
+    const reply = await MentorEngine.chatReply(text, {
+      style: A.preferences.mentorStyle,
+      mission: item ? { title: loc(item.title), minutes: A.easier === item.id ? 5 : item.duration } : null,
+    });
+    A.chat.push({ id: uid("c"), role: "me", text });
+    A.chat.push({ id: uid("c"), role: "mentor", text: loc(reply) });
+    A.chat = A.chat.slice(-40);
+    A._focus = "chatInput";
+    A._scrollChat = true;
+    rerender();
+  },
+  mic() {
+    toast(A.preferences.mic ? T("mentor.micSoon") : T("mentor.micOff"));
+  },
+
+  /* 7. Paramètres */
+  style(el) {
+    A.preferences.mentorStyle = el.dataset.value;
+    rerender();
+  },
+  memDel(el) {
+    memoryDelete(el.dataset.key);
+    rerender();
+    toast(T("toast.memDeleted"));
+  },
+  memAll() {
+    A.answers = {};
+    memoryDelete("age");
+    A.chat = [];
+    rerender();
+    toast(T("toast.allDeleted"));
+  },
+  reset() {
+    A.confirmReset = true;
+    renderApp();
+  },
+  resetNo() {
+    A.confirmReset = false;
+    renderApp();
+  },
+  resetYes() {
+    store.remove(APP_KEY);
+    A = defaults();
+    A.screen = "welcome";
+    renderApp();
+    window.scrollTo(0, 0);
+    toast(T("toast.resetDone"));
+  },
+  exit() {
+    location.hash = "";
+  },
+};
+
+const CHANGES = {
+  async lang(el) {
+    await setLanguage(el.value);
+  },
+  notif(el) {
+    A.preferences.notifications = el.checked;
+    A.reminders.forEach((r) => {
+      if (!el.checked) r.status = "off";
+    });
+    rerender();
+  },
+  rem(el) {
+    const r = A.reminders.find((item) => item.id === el.dataset.id);
+    if (r) r.status = el.checked ? "on" : "off";
+    persist();
+  },
+  remTime(el) {
+    const r = A.reminders.find((item) => item.id === el.dataset.id);
+    if (r && el.value) r.time = el.value;
+    persist();
+  },
+  mic(el) {
+    A.preferences.mic = el.checked;
+    persist();
+  },
+  memToggle(el) {
+    A.preferences.memory = el.checked;
+    rerender();
+  },
+  shareChanged() {
+    rerender();
+  },
+};
+
+/* ---------- Événements (un seul écouteur par type, sur #main) ---------- */
+function bindAppEvents() {
+  const main = $("#main");
+
+  main.addEventListener("click", async (event) => {
+    if (!appOpen) return;
+    const el = event.target.closest("[data-action]");
+    if (!el || !main.contains(el) || el.disabled) return;
+    const action = ACTIONS[el.dataset.action];
+    if (!action) return;
+    if (el.dataset.focus) A._focus = el.dataset.focus;
+    await action(el, event);
+  });
+
+  main.addEventListener("input", (event) => {
+    if (!appOpen) return;
+    const el = event.target.closest("[data-bind]");
+    if (!el) return;
+    setPath(A, el.dataset.bind, el.type === "checkbox" ? el.checked : el.value);
+  });
+
+  main.addEventListener("change", async (event) => {
+    if (!appOpen) return;
+    const bound = event.target.closest("[data-bind]");
+    if (bound) persist();
+    const el = event.target.closest("[data-change]");
+    if (!el) return;
+    if (el.dataset.focus) A._focus = el.dataset.focus;
+    await CHANGES[el.dataset.change]?.(el);
+  });
+
+  main.addEventListener("keydown", async (event) => {
+    if (!appOpen || event.key !== "Enter" || event.isComposing) return;
+    const el = event.target.closest("[data-enter]");
+    if (!el) return;
+    event.preventDefault();
+    await ACTIONS[el.dataset.enter]?.(el, event);
+  });
+
+  $(".brand")?.addEventListener("click", (event) => {
+    if (!appOpen) return;
+    event.preventDefault();
+    location.hash = "";
+  });
+
+  window.addEventListener("hashchange", () => {
+    if (wantApp() !== appOpen) {
+      renderCurrent();
+      window.scrollTo(0, 0);
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", bindAppEvents);
+window.MentorAI = { engine: MentorEngine, getState: () => JSON.parse(JSON.stringify(A)) };
+
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="a11y.skip"></a>
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="#top" aria-label="MENTOR AI">
+          <span class="brand-mark" aria-hidden="true">M</span>
+          <span>MENTOR AI</span>
+        </a>
+        <div class="nav-actions">
+          <label class="select-wrap">
+            <span class="sr-only" data-i18n="controls.languageLabel"></span>
+            <select id="languageSelect" aria-label="Language selector"></select>
+          </label>
+          <button class="icon-button" id="themeToggle" type="button" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true"></span>
+            <span class="sr-only" data-i18n="controls.theme"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main"></main>
+    <div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+  </body>
+</html>

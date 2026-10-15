@@ -1,0 +1,9 @@
+{
+  "name": "MENTOR AI",
+  "short_name": "MentorAI",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f9fc",
+  "theme_color": "#062c66",
+  "description": "Un mentor numerique leger pour passer de l'incertitude a l'action."
+}
